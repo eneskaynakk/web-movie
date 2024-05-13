@@ -1,0 +1,43 @@
+.horizontal-tab {
+  @apply
+  mb-5
+  flex
+  list-none
+  flex-row
+  flex-wrap
+  border-b-0
+  pl-0
+  gap-x-2
+  md:flex-row;
+}
+
+.tabs {
+  .nav-item {
+    @apply text-center;
+
+    .nav-link {
+      @apply
+      motion-reduce:transition-none
+      cursor-pointer
+      border-x-0
+      border-t-0
+      border-b-2
+      border-transparent
+      p-2
+      text-sm
+      font-medium
+      uppercase
+      leading-tight
+      text-neutral-500
+      hover:isolate
+      hover:bg-neutral-100
+      hover:rounded-t-md
+      focus:isolate
+      focus:border-transparent;
+
+      &.active {
+        @apply border-primary-500 text-primary-700;
+      }
+    }
+  }
+}

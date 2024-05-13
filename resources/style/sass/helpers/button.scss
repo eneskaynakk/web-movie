@@ -1,0 +1,270 @@
+.swal2-my-toast {
+    height: auto !important;
+    padding: 8px !important; /* İstenilen padding değerini ayarlayın */ /* İstenilen font boyutunu ayarlayın */
+}
+
+nav ul li {
+    display: inline-block;
+    margin: 0 15px;
+    position: relative;
+}
+.menubar {
+    text-align: center; /* Menüyü yatay olarak ortalar */
+}
+nav ul li a {
+    color: #fff;
+    text-decoration: none;
+    margin: 0 -1px;
+    padding: 10px 10px 10px 10px;
+}
+
+nav ul li a::after { /* Yeni eklenen blok */
+    content: '';
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: -5px;
+    height: 2px;
+    background-color: #fff;
+    visibility: hidden; /* Başlangıçta görünmez yapılır */
+    width: 0;
+    transition: all 0.3s ease; /* Animasyonlu genişleme */
+}
+
+nav ul li:hover a::after { /* :hover durumunda çizgi görünür hale gelir */
+    visibility: visible;
+    width: 100%;
+}
+.carousel {
+    max-width: 100%;
+    overflow: hidden;
+}
+
+.carousel-inner {
+    display: flex;
+}
+
+.carousel-item {
+    flex: none;
+}
+
+.prev,
+.next {
+    cursor: pointer;
+    z-index: 10;
+}
+
+.carousel-container {
+    max-width: 1300px;
+    margin: auto;
+}
+
+.carousel-wrapper {
+    overflow: hidden;
+    border-radius: 8px;
+    max-width: 100%;
+    max-height: 1000px;
+}
+
+.carousel-image {
+    width: 100%;
+    height: auto;
+}
+
+.slide-enter-active,
+.slide-leave-active {
+    transition: opacity 0.5s;
+}
+
+.slide-enter,
+.slide-leave-to {
+    opacity: 0;
+}
+
+.prev-btn,
+.next-btn {
+    font-size: 1rem;
+    cursor: pointer;
+}
+.btn-film-list{
+    @apply
+    text-center
+    w-auto
+    ml-14
+    rounded-md
+    font-extrabold
+    antialiased
+    tracking-wide
+    text-sm
+    uppercase
+    text-white;
+}
+.btn-movie{
+    @apply
+    text-center
+    w-auto
+    py-2
+    px-2
+    rounded-full
+    font-extrabold
+    antialiased
+    tracking-wide
+    text-sm
+    uppercase
+    text-white;
+}
+.btn-social{
+    @apply
+    text-center
+    w-auto
+    my-2
+    mx-2
+    rounded-md
+    font-extrabold
+    antialiased
+    tracking-wide
+    text-sm
+    uppercase
+    text-white;
+}
+.btn {
+  @apply
+  text-center
+  w-auto
+  py-2
+  px-2
+  rounded-md
+  font-extrabold
+  antialiased
+  tracking-wide
+  text-sm
+  uppercase
+  text-white;
+
+  &.btn-primary {
+    @apply bg-primary hover:bg-primary-700;
+  }
+  &.btn-sky {
+    @apply bg-sky-400 hover:bg-sky-500;
+  }
+
+  &.btn-secondary {
+    @apply
+    bg-gray-600
+    hover:bg-gray-700;
+  }
+
+  &.btn-success {
+    @apply bg-green-600 hover:bg-green-700;
+  }
+
+  &.btn-danger {
+    @apply bg-red-600 hover:bg-red-700;
+  }
+
+  &.btn-dark {
+    @apply bg-stone-900 hover:bg-stone-700;
+  }
+
+  &.btn-warning {
+    @apply bg-yellow-400 hover:bg-yellow-300 text-black;
+  }
+
+  &.btn-info {
+    @apply bg-neutral-200 hover:bg-neutral-300 text-black;
+  }
+
+  &.btn-white {
+    @apply bg-white border border-gray-200 hover:bg-gray-300 text-black;
+  }
+
+  &.icon-btn {
+    @apply
+    -ml-px
+    relative
+    text-gray-600
+    inline-flex
+    items-center
+    gap-x-1.5
+    ring-1
+    ring-inset
+    ring-gray-300
+    hover:bg-green-50
+  }
+
+
+  &.btn-animation {
+    @apply
+    border-none
+    text-white
+    capitalize
+    hover:text-black
+    hover:bg-transparent
+    after:left-0
+    after:bottom-0;
+
+    &:hover {
+      box-shadow: none;
+    }
+
+    &::before,
+    &::after {
+      @apply
+      content-['']
+      absolute
+      top-0
+      right-0
+      w-0
+      h-0.5
+      bg-primary-400;
+
+      box-shadow:
+              -1px -1px 5px 0px #fff,
+              7px 7px 20px 0px #0003,
+              4px 4px 5px 0px #0002;
+      transition: 400ms ease all;
+    }
+
+    &::after {
+      right: inherit;
+      top: inherit;
+    }
+
+    &:hover::before,
+    &:hover::after {
+      @apply w-full;
+
+      transition: 400ms ease all;
+    }
+  }
+}
+
+.btn-badge {
+  @apply
+  btn
+  text-center
+  pointer-events-none;
+
+  &.theme-green {
+    @apply bg-green-600;
+  }
+
+  &.theme-sky {
+    @apply bg-sky-600;
+  }
+
+  &.theme-light-green {
+    @apply bg-green-400;
+  }
+}
+
+.btn-config {
+  @apply bg-primary;
+
+  &:hover {
+    i {
+      transition: transform 1s ease 0s;
+      transform: rotate(360deg);
+    }
+  }
+}
