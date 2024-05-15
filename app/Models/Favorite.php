@@ -16,8 +16,8 @@ class Favorite extends Model
         return $this->belongsTo(User::class);
     }
 
-    public function movies()
+    public function movie()
     {
-        return $this->belongsToMany(Movie::class);
+        return $this->belongsTo(Movie::class);
     }
 }

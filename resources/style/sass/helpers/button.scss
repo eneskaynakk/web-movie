@@ -1,3 +1,9 @@
+.filter-white {
+    filter: brightness(0) invert(1);
+}
+.dropdown:hover .dropdown-menu {
+    display: block;
+}
 .swal2-my-toast {
     height: auto !important;
     padding: 8px !important; /* İstenilen padding değerini ayarlayın */ /* İstenilen font boyutunu ayarlayın */

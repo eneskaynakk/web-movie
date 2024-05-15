@@ -2,26 +2,42 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Favorite;
+use App\Models\Movie;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class FavoriteController extends Controller
 {
-    public function addFavoriteCourse(Course $course)
+    public function index()
     {
-        if (auth()->check()) {
-
-				//This condition does not apply
-            if (in_array(auth()->user()->favorites ,$course->favorites)) {
-                auth()->user()->favorites()->create([
-                    'course_id' => $course->id
-                ]);
-                toast('The course was successfully added to your list of favorite courses', 'success');
-                return back();
-            } else {
-                toast('There are already courses in your favorites', 'error');
-            }
-        }
-        toast('To add to your favorites list, you must first login', 'error');
-        return back();
+        $favorites = Favorite::where('user_id', Auth::id())->with('movie')->get();
+        return response()->json($favorites);
     }
+
+    public function store(Request $request)
+    {
+        $request->validate([
+            'movie_id' => 'required|exists:movies,id',
+        ]);
+
+        $favorite = Favorite::create([
+            'user_id' => Auth::id(),
+            'movie_id' => $request->movie_id,
+        ]);
+
+        return response()->json($favorite, 201);
+    }
+
+    public function destroy($id)
+    {
+        $favorite = Favorite::where('user_id', Auth::id())->where('movie_id', $id)->first();
+        if ($favorite) {
+            $favorite->delete();
+            return response()->json(null, 204);
+        }
+
+        return response()->json(['message' => 'Not Found'], 404);
+    }
+
 }

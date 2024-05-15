@@ -27,8 +27,5 @@ class Movie extends Model
         'award'
     ];
 
-    public function favorites()
-    {
-        return $this->belongsToMany(Favorite::class);
-    }
+  
 }

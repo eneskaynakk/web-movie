@@ -17,22 +17,24 @@
 
 
     <div class="carousel relative overflow-hidden mt-32">
-
         <div class="flex text-white text-2xl font-bold mb-6">
             <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="w-7 h-7 mr-[3px] bi bi-fire" viewBox="0 0 16 16">
                 <path d="M8 16c3.314 0 6-2 6-5.5 0-1.5-.5-4-2.5-6 .25 1.5-1.25 2-1.25 2C11 4 9 .5 6 0c.357 2 .5 4-2 6-1.25 1-2 2.729-2 4.5C2 14 4.686 16 8 16m0-1c-1.657 0-3-1-3-2.75 0-.75.25-2 1.25-3C6.125 10 7 10.5 7 10.5c-.375-1.25.5-3.25 2-3.5-.179 1-.25 2 1 3 .625.5 1 1.364 1 2.25C11 14 9.657 15 8 15"/>
             </svg>
-            Popüler Filmler {{  store?.user?.email }}
+            Popüler Filmler
         </div>
 
-        <div class="carousel-inner grid grid-cols-3 gap-4 transition-transform ease-in-out duration-500 " :style="{ 'transform': `translateX(-${currentPopularIndex * 200}px)` }">
-            <div v-for="(movieDetail, index) in movies.slice(0,19)" :key="index" class="carousel-item flex-shrink-0 flex flex-col items-center justify-center py-4" style="width:200px;" >
-                <a :href="movie" class="relative">
-                    <a :href="watch" class="left-0 top-0 absolute z-10 p-2 backdrop-blur-sm bg-gray-800/30 w-12 h-12 justify-center items-center flex self-end rounded-xl border-gray-400/50 border hover:shadow-xl">
+        <div class="carousel-inner grid grid-cols-3 gap-4 py-4 transition-transform ease-in-out duration-500 " :style="{ 'transform': `translateX(-${currentPopularIndex * 200}px)` }">
+            <div v-for="(movieDetail) in movies.slice(0,19)" :key="movieDetail.id" class="relative carousel-item flex-shrink-0 flex flex-col items-center justify-center" style="width:200px;" >
+                <button @click="addFavorite(movieDetail.id)" v-if="!movieIds.includes(movieDetail.id)" class="left-0 top-0 absolute z-10 p-2 backdrop-blur-sm bg-gray-800/30 w-12 h-12 justify-center items-center flex self-end rounded-xl border-gray-400/50 border hover:shadow-xl">
                         <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-white" viewBox="0 0 20 20" fill="currentColor">
                         <path d="M5 4a2 2 0 012-2h6a2 2 0 012 2v14l-5-2.5L5 18V4z" />
                         </svg>
-                    </a>
+                </button>
+                <button @click="deleteFavorites(movieDetail.id)" v-else class="left-0 top-0 absolute z-10 p-2 backdrop-blur-sm bg-gray-800/30 w-12 h-12 justify-center items-center flex self-end rounded-xl border-gray-400/50 border hover:shadow-xl">
+                    <img src="https://cdn-icons-png.flaticon.com/512/3976/3976956.png" class="img-small w-8 h-8 filter-white">
+                </button>
+                <a :href="movie">
                     <div class="border-2 rounded-xl">
                         <img :src="movieDetail.poster" alt="Carousel Image" class="w-56 h-72 opacity-100 hover:opacity-90 border-2 rounded-lg">
                     </div>
@@ -289,14 +291,14 @@
 </template>
 
 <script setup>
-import { ref, onMounted, onUnmounted, computed } from 'vue';
+import { ref, reactive, onMounted, onUnmounted} from 'vue';
 import {getRoute, fetchData} from "@utils/helpers.js";
 import { useAuthStore } from '@stores/authStore'
+
 
 //Database veri çekme işlemi
 const { movies } = defineProps(['movies'])
 //
-
 
 
 const movie = getRoute('movie')
@@ -401,4 +403,36 @@ const nextActorItem = () => {
 };
 
 const store = useAuthStore()
+
+const addFavorite = (movie_id) => {
+    if (!store.user) {
+        window.location.href = getRoute('login')
+        return
+    }
+
+    fetchData('favorites.store', {movie_id}).then(() => getFavouriteMovies())
+}
+
+let myMovies = ref([])
+let movieIds = ref([])
+
+const getFavouriteMovies = () => {
+    if (store.isAuthenticate) {
+        fetchData('favorites.index').then((data) => {
+            myMovies.value = data.data
+            movieIds.value = []
+            myMovies.value.forEach(movie => movieIds.value.push(movie.movie_id))
+        })
+    }
+}
+
+const deleteFavorites = (id) => {
+    fetchData('favorites.delete', {id}).then((data) => {
+        console.log('başarılı silme')
+        getFavouriteMovies()
+        })
+}
+
+onMounted(() => getFavouriteMovies())
+
 </script>
