@@ -18,7 +18,7 @@
                     <li class="text-base"><a href="/"><i class="icofont-home text-xl"></i> Anasayfa</a></li>
                     <li class="text-base"><a :href="about"><i class="icofont-info-circle text-xl"></i> Hakkımızda</a></li>
                     <li class="text-base"><a :href="team"><i class="icofont-ui-user-group text-xl"></i> Ekip</a></li>
-                    <li class="text-base"><a :href="x()"><i class="icofont-phone text-xl"></i> İletişim </a></li>
+                    <li class="text-base"><a :href="contact()"><i class="icofont-phone text-xl"></i> İletişim </a></li>
                 </ul>
             </div>
 
@@ -139,7 +139,7 @@ const watch = getRoute('watch')
 const team = getRoute('team')
 
 
-const x = () => location.href + '#iletisim'
+const contact = () => '#iletisim'
 
 const store = useAuthStore()
 

@@ -33,8 +33,8 @@ Route::get('/register', function () {
 })->middleware(['guest'])->name('register');
 
 Route::get('/watchlist', function () {
-    return view('pages/watchlistpage');
-})->middleware(['auth'])->name('watch');
+        return view('pages/watchlistpage');
+    })->middleware(['auth'])->name('watch');
 
 Route::get('/about', function () {
     return view('pages/aboutpage');

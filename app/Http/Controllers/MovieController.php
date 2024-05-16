@@ -17,7 +17,6 @@ class MovieController extends Controller
         return view('pages.homepage', ['movies' => $movies]);
     }
 
-
     /**
      * Show the form for creating a new resource.
      */

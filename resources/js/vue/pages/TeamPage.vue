@@ -2,7 +2,7 @@
 
     <div class="text-center mx-auto mb-4 mt-12">
         <h2 class="text-2xl leading-normal mb-2 font-bold text-white dark:text-gray-100">
-            <span class="font-light">Ekip</span> Üyelerimiz
+            Ekip <span class="font-light">Üyelerimiz</span>
         </h2>
         <svg class="inline" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 100 60" style="margin: 0 auto;height: 35px;" xml:space="preserve">
         <circle cx="50.1" cy="30.4" r="5" class="stroke-white" style="fill: transparent;stroke-width: 2;stroke-miterlimit: 10;"></circle>
