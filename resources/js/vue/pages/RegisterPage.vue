@@ -11,32 +11,32 @@
                     <form @submit.prevent="register">
 
                         <div>
-                            <label class="mb-2.5 block font-extrabold" >Ad</label>
-                            <input type="text" name="name" v-model="form.name" class="inline-block w-full rounded-full bg-white mb-2.5 p-2.5 leading-none text-black placeholder-indigo-900 shadow placeholder:opacity-30" placeholder="ornek@gmail.com" />
+                            <label class="mb-2.5 block font-extrabold" >Name</label>
+                            <input type="text" name="name" v-model="form.name" class="inline-block w-full rounded-full bg-white mb-2.5 p-2.5 leading-none text-black placeholder-indigo-900 shadow placeholder:opacity-30" placeholder="Example" />
                         </div>
 
                         <div>
-                            <label class="mb-2.5 block font-extrabold">E-posta</label>
-                            <input type="email" name="email" v-model="form.email" class="inline-block w-full rounded-full bg-white p-2.5 leading-none text-black placeholder-indigo-900 shadow placeholder:opacity-30" placeholder="ornek@gmail.com" />
+                            <label class="mb-2.5 block font-extrabold">Email</label>
+                            <input type="email" name="email" v-model="form.email" class="inline-block w-full rounded-full bg-white p-2.5 leading-none text-black placeholder-indigo-900 shadow placeholder:opacity-30" placeholder="example@gmail.com" />
                         </div>
 
                         <div class="mt-4">
-                            <label class="mb-2.5 block font-extrabold">Şifre</label>
+                            <label class="mb-2.5 block font-extrabold">Password</label>
                             <input type="password" name="password" v-model="form.password" class="inline-block w-full rounded-full bg-white p-2.5 leading-none text-black placeholder-indigo-900 shadowplaceholder-indigo-900 placeholder:opacity-30" placeholder="********"/>
                         </div>
 
                         <div class="mt-4">
-                            <label class="mb-2.5 block font-extrabold">Şifre(Tekrar)</label>
+                            <label class="mb-2.5 block font-extrabold">Confirm Password</label>
                             <input type="password" name="confirm-password" v-model="form.password_confirmation" class="inline-block w-full rounded-full bg-white p-2.5 leading-none text-black placeholder-indigo-900 shadowplaceholder-indigo-900 placeholder:opacity-30" placeholder="********"/>
                         </div>
 
                         <div class="my-10">
-                            <button type="submit" class="block w-full text-center text-black rounded-full bg-green-50 p-5 hover:bg-gray-200">Üye Ol</button>
+                            <button type="submit" class="block w-full text-center text-black rounded-full bg-green-50 p-5 hover:bg-gray-200">Sign Up</button>
                         </div>
 
                     </form>
                     <div class="my-10">
-                        <a :href="login"><button  class="block w-full text-center text-black rounded-full bg-green-50 p-5 hover:bg-gray-200">Giriş Yap</button></a>
+                        <a :href="login"><button  class="block w-full text-center text-black rounded-full bg-green-50 p-5 hover:bg-gray-200">Login</button></a>
                     </div>
                 </div>
             </div>

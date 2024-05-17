@@ -37,46 +37,34 @@
                 </div>
                 <div class="grid grid-cols-1 gap-8 lg:col-span-2 sm:grid-cols-2 lg:grid-cols-4">
                     <div>
-                        <p class="font-medium">
-                            Company
-                        </p>
                         <nav class="flex flex-col mt-4 space-y-2 text-sm text-white">
-                            <a class="hover:opacity-75" :href="servis()"> Servisler </a>
-                            <a class="hover:opacity-75" :href="neden()"> Neden IAM </a>
-                            <a class="hover:opacity-75" :href="basari()"> Başarılarımız </a>
-                            <a class="hover:opacity-75" :href="kariyer()"> Kariyer </a>
+                            <a class="hover:opacity-75" :href="service()"> Services </a>
+                            <a class="hover:opacity-75" :href="why()"> Why IAM? </a>
+                            <a class="hover:opacity-75" :href="achievement()"> Our Achievements </a>
+                            <a class="hover:opacity-75" :href="career()"> Career </a>
                         </nav>
                     </div>
                     <div>
-                        <p class="font-medium">
-                            Services
-                        </p>
                         <nav class="flex flex-col mt-4 space-y-2 text-sm text-white">
-                            <a class="hover:opacity-75" :href="is()"> İş Ortaklarımız </a>
+                            <a class="hover:opacity-75" :href="business()"> Our Business Partners </a>
                             <a class="hover:opacity-75" :href="blog()"> IAM Blog </a>
-                            <a class="hover:opacity-75" :href="entegre()"> Entegrasyonlar </a>
-                            <a class="hover:opacity-75" :href="abone()"> Abonelik Yöntemi </a>
+                            <a class="hover:opacity-75" :href="integration()"> Integrations </a>
+                            <a class="hover:opacity-75" :href="subscription()"> Subscription Method </a>
                         </nav>
                     </div>
                     <div>
-                        <p class="font-medium">
-                            Helpful Links
-                        </p>
                         <nav class="flex flex-col mt-4 space-y-2 text-sm text-white">
-                            <a class="hover:opacity-75" :href="hizmet()"> Hizmet Koşulları</a>
-                            <a class="hover:opacity-75" :href="cerez()"> Çerez Politikası </a>
-                            <a class="hover:opacity-75" :href="gizlilik()"> Gizlilik </a>
+                            <a class="hover:opacity-75" :href="term()"> Terms of Service</a>
+                            <a class="hover:opacity-75" :href="cookie()"> Cookie Policy </a>
+                            <a class="hover:opacity-75" :href="privacy()"> Privacy </a>
                         </nav>
                     </div>
                     <div>
-                        <p class="font-medium">
-                            Legal
-                        </p>
                         <nav class="flex flex-col mt-4 space-y-2 text-sm text-white">
                             <a class="hover:opacity-75" :href="kvkk()"> KVKK </a>
-                            <a class="hover:opacity-75" :href="guvenlik()"> Güvenlik </a>
-                            <a class="hover:opacity-75" :href="bilgi()"> Bilgi Güvenliği Politikası </a>
-                            <a class="hover:opacity-75" :href="toplum()"> Bilgi Toplum Hizmetleri </a>
+                            <a class="hover:opacity-75" :href="security()"> Security </a>
+                            <a class="hover:opacity-75" :href="information()"> Information Security Policy </a>
+                            <a class="hover:opacity-75" :href="society()"> Information Society Services </a>
                         </nav>
                     </div>
                 </div>
@@ -96,21 +84,21 @@ const imgUrl = new URL('@images/site_logo.png', import.meta.url).href
 
 const about = getRoute('about')
 
-const servis = () => about + '#servis'
-const neden = () => about + '#neden'
-const basari = () => about + '#basari'
-const kariyer = () => about + '#kariyer'
-const is = () => about + '#is'
+const service = () => about + '#service'
+const why = () => about + '#why'
+const achievement = () => about + '#achievement'
+const career = () => about + '#career'
+const business= () => about + '#business'
 const blog = () => about + '#blog'
-const entegre = () => about + '#entegre'
-const abone = () => about + '#abone'
-const hizmet = () => about + '#hizmet'
-const cerez = () => about + '#cerez'
-const gizlilik = () => about + '#gizlilik'
+const integration = () => about + '#integration'
+const subscription = () => about + '#subscription'
+const term = () => about + '#term'
+const cookie = () => about + '#cookie'
+const privacy = () => about + '#privacy'
 const kvkk = () => about + '#kvkk'
-const guvenlik = () => about + '#guvenlik'
-const bilgi = () => about + '#bilgi'
-const toplum = () => about + '#toplum'
+const security = () => about + '#security'
+const information = () => about + '#information'
+const society = () => about + '#society'
 
 onMounted(() => {
   window.scrollTo({top:0, behavior:'smooth'});

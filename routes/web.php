@@ -3,6 +3,9 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\MovieController;
 use App\Http\Controllers\FavoriteController;
+use App\Http\Controllers\MovieDetailController;
+
+
 
 /*
 |--------------------------------------------------------------------------
@@ -23,6 +26,7 @@ Route::middleware('auth')->group(function () {
     Route::delete('/favorites/{id}', [FavoriteController::class, 'destroy'])->name('favorites.delete');
 });
 
+Route::get('/movie/{id}', [MovieController::class, 'show'])->name('movies.show');
 
 Route::get('/login', function () {
     return view('pages/loginpage');

@@ -10,15 +10,15 @@
                         <svg xmlns="http://www.w3.org/2000/svg" class="h-7 w-7 mr-[2px] text-white" viewBox="0 0 20 20" fill="currentColor">
                             <path d="M5 4a2 2 0 012-2h6a2 2 0 012 2v14l-5-2.5L5 18V4z" />
                         </svg>
-                        Film Listem
+                        Watchlist
                     </button>
                 </a>
 
                 <ul class="flex space-x-6 text-white">
-                    <li class="text-base"><a href="/"><i class="icofont-home text-xl"></i> Anasayfa</a></li>
-                    <li class="text-base"><a :href="about"><i class="icofont-info-circle text-xl"></i> Hakkımızda</a></li>
-                    <li class="text-base"><a :href="team"><i class="icofont-ui-user-group text-xl"></i> Ekip</a></li>
-                    <li class="text-base"><a :href="contact()"><i class="icofont-phone text-xl"></i> İletişim </a></li>
+                    <li class="text-base"><a href="/"><i class="icofont-home text-xl"></i> Home </a></li>
+                    <li class="text-base"><a :href="about"><i class="icofont-info-circle text-xl"></i> About </a></li>
+                    <li class="text-base"><a :href="team"><i class="icofont-ui-user-group text-xl"></i> Team </a></li>
+                    <li class="text-base"><a :href="support()"><i class="icofont-phone text-xl"></i> Support </a></li>
                 </ul>
             </div>
 
@@ -31,7 +31,7 @@
 
                 <div class="relative">
                     <input name="fsrch" v-model="search"  @input="getMovies" id="fsrch" ref="fscrh"
-                    class="bg-white text-black bold w-96 h-10 p-2 rounded-r-lg" placeholder="Film arayın...">
+                    class="bg-white text-black bold w-96 h-10 p-2 rounded-r-lg" placeholder="Search IAM...">
                     <div v-if="search " class="absolute z-10 bg-white rounded-lg w-96 mt-2 pr-16">
                         <a href="/movie">
                             <div v-for="movie in movies.slice(0,5)" :key="movie.id" class="items-center grid grid-cols-2 hover:underline opacity-100 hover:opacity-80">
@@ -69,7 +69,7 @@
                                         <svg xmlns="http://www.w3.org/2000/svg" class="h-7 w-7 mr-[2px] text-black" viewBox="0 0 20 20" fill="currentColor">
                                             <path d="M5 4a2 2 0 012-2h6a2 2 0 012 2v14l-5-2.5L5 18V4z" />
                                         </svg>
-                                        Film Listem
+                                        Watchlist
                                     </a>
                                 </div>
                                 <div>
@@ -78,7 +78,7 @@
                                             <path d="M13 4.00894C13.0002 3.45665 12.5527 3.00876 12.0004 3.00854C11.4481 3.00833 11.0002 3.45587 11 4.00815L10.9968 12.0116C10.9966 12.5639 11.4442 13.0118 11.9965 13.012C12.5487 13.0122 12.9966 12.5647 12.9968 12.0124L13 4.00894Z" fill="currentColor" />
                                             <path d="M4 12.9917C4 10.7826 4.89541 8.7826 6.34308 7.33488L7.7573 8.7491C6.67155 9.83488 6 11.3349 6 12.9917C6 16.3054 8.68629 18.9917 12 18.9917C15.3137 18.9917 18 16.3054 18 12.9917C18 11.3348 17.3284 9.83482 16.2426 8.74903L17.6568 7.33481C19.1046 8.78253 20 10.7825 20 12.9917C20 17.41 16.4183 20.9917 12 20.9917C7.58172 20.9917 4 17.41 4 12.9917Z" fill="currentColor" />
                                         </svg>
-                                        <span class="">Çıkış Yap</span>
+                                        <span class="">Sign Out</span>
                                     </button>
                                 </div>
                             </div>
@@ -91,7 +91,7 @@
                         <a :href="register">
                             <button class="flex justify-center items-center rounded-lg text-white font-bold border-2 p-2 border-white transition-all duration-100  hover:shadow-md hover:bg-gradient-to-t hover:from-stone-100 before:to-stone-50 hover:-translate-y-[3px]">
                                 <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6  mr-[5px] text-white " viewBox="0 0 24 24" fill="none" stroke="#ffffff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="8.5" cy="7" r="4"></circle><line x1="20" y1="8" x2="20" y2="14"></line><line x1="23" y1="11" x2="17" y2="11"></line></svg>
-                                Üye Ol
+                                Sign Up
                             </button>
                         </a>
                     </div>
@@ -101,7 +101,7 @@
                                 <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 mr-[5px] text-white " viewBox="0 0 24 24" fill="none" stroke="#ffffff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                                     <path d="M15 3h4a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2h-4M10 17l5-5-5-5M13.8 12H3"/>
                                 </svg>
-                                Giriş Yap
+                                Login
                             </button>
                         </a>
                     </div>
@@ -139,7 +139,7 @@ const watch = getRoute('watch')
 const team = getRoute('team')
 
 
-const contact = () => '#iletisim'
+const support = () => '#support'
 
 const store = useAuthStore()
 

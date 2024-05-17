@@ -21,7 +21,7 @@
             <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="w-7 h-7 mr-[3px] bi bi-fire" viewBox="0 0 16 16">
                 <path d="M8 16c3.314 0 6-2 6-5.5 0-1.5-.5-4-2.5-6 .25 1.5-1.25 2-1.25 2C11 4 9 .5 6 0c.357 2 .5 4-2 6-1.25 1-2 2.729-2 4.5C2 14 4.686 16 8 16m0-1c-1.657 0-3-1-3-2.75 0-.75.25-2 1.25-3C6.125 10 7 10.5 7 10.5c-.375-1.25.5-3.25 2-3.5-.179 1-.25 2 1 3 .625.5 1 1.364 1 2.25C11 14 9.657 15 8 15"/>
             </svg>
-            Popüler Filmler
+            Popular Movies
         </div>
 
         <div class="carousel-inner grid grid-cols-3 gap-4 py-4 transition-transform ease-in-out duration-500 " :style="{ 'transform': `translateX(-${currentPopularIndex * 200}px)` }">
@@ -36,7 +36,7 @@
                         <path d="M5 4a2 2 0 012-2h6a2 2 0 012 2v14l-5-2.5L5 18V4z" />
                     </svg>
                 </button>
-                <a :href="movie">
+                <a :href="'movie/' + movieDetail.id" @click="addDetail(movieDetail.movie_id)">
                     <div class="border-2 rounded-xl">
                         <img :src="movieDetail.poster" alt="Carousel Image" class="w-56 h-72 opacity-100 hover:opacity-90 border-2 rounded-lg">
                     </div>
@@ -85,7 +85,7 @@
                 <path d="m8 0 1.669.864 1.858.282.842 1.68 1.337 1.32L13.4 6l.306 1.854-1.337 1.32-.842 1.68-1.858.282L8 12l-1.669-.864-1.858-.282-.842-1.68-1.337-1.32L2.6 6l-.306-1.854 1.337-1.32.842-1.68L6.331.864z"/>
                 <path d="M4 11.794V16l4-1 4 1v-4.206l-2.018.306L8 13.126 6.018 12.1z"/>
             </svg>
-            En Çok Oy Alan Filmler
+            Top Rated Movies
         </div>
 
         <div class="carousel-inner grid grid-cols-3 gap-4 transition-transform ease-in-out duration-500 " :style="{ 'transform': `translateX(-${currentTopIndex * 200}px)` }">
@@ -138,7 +138,7 @@
         <div class="flex flex-wrap items-center md:flex-row flex-col-reverse">
             <div class="md:w-2/3 w-full pb-6 md:pb-0 md:pr-6 flex-col md:block flex items-center justify-center md:pt-0 pt-4">
                 <div>
-                    <h1 role="heading" class="text-xl md:text-2xl lg:text-4xl xl:text-4xl lg:w-10/12 text-white font-black leading-6 lg:leading-10 md:text-left text-center">Sen de Discord kanalımıza katılıp bizden biri olmaya ne dersin ?</h1>
+                    <h1 role="heading" class="text-xl md:text-2xl lg:text-4xl xl:text-4xl lg:w-10/12 text-white font-black leading-6 lg:leading-10 md:text-left text-center">How about joining our Discord channel and becoming one of us?</h1>
                 </div>
                 <div class="flex">
                     <a href="/">
@@ -146,7 +146,7 @@
                             <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="w-8 h-8 mr-[10px] bi bi-discord" viewBox="0 0 16 16">
                                 <path d="M13.545 2.907a13.2 13.2 0 0 0-3.257-1.011.05.05 0 0 0-.052.025c-.141.25-.297.577-.406.833a12.2 12.2 0 0 0-3.658 0 8 8 0 0 0-.412-.833.05.05 0 0 0-.052-.025c-1.125.194-2.22.534-3.257 1.011a.04.04 0 0 0-.021.018C.356 6.024-.213 9.047.066 12.032q.003.022.021.037a13.3 13.3 0 0 0 3.995 2.02.05.05 0 0 0 .056-.019q.463-.63.818-1.329a.05.05 0 0 0-.01-.059l-.018-.011a9 9 0 0 1-1.248-.595.05.05 0 0 1-.02-.066l.015-.019q.127-.095.248-.195a.05.05 0 0 1 .051-.007c2.619 1.196 5.454 1.196 8.041 0a.05.05 0 0 1 .053.007q.121.1.248.195a.05.05 0 0 1-.004.085 8 8 0 0 1-1.249.594.05.05 0 0 0-.03.03.05.05 0 0 0 .003.041c.24.465.515.909.817 1.329a.05.05 0 0 0 .056.019 13.2 13.2 0 0 0 4.001-2.02.05.05 0 0 0 .021-.037c.334-3.451-.559-6.449-2.366-9.106a.03.03 0 0 0-.02-.019m-8.198 7.307c-.789 0-1.438-.724-1.438-1.612s.637-1.613 1.438-1.613c.807 0 1.45.73 1.438 1.613 0 .888-.637 1.612-1.438 1.612m5.316 0c-.788 0-1.438-.724-1.438-1.612s.637-1.613 1.438-1.613c.807 0 1.451.73 1.438 1.613 0 .888-.631 1.612-1.438 1.612"/>
                             </svg>
-                            Hemen Katıl
+                            Join Now
                         </button>
                     </a>
                 </div>
@@ -165,7 +165,7 @@
                 <path d="M2.5 15a.5.5 0 1 1 0-1h1v-1a4.5 4.5 0 0 1 2.557-4.06c.29-.139.443-.377.443-.59v-.7c0-.213-.154-.451-.443-.59A4.5 4.5 0 0 1 3.5 3V2h-1a.5.5 0 0 1 0-1h11a.5.5 0 0 1 0 1h-1v1a4.5 4.5 0 0 1-2.557 4.06c-.29.139-.443.377-.443.59v.7c0 .213.154.451.443.59A4.5 4.5 0 0 1 12.5 13v1h1a.5.5 0 0 1 0 1zm2-13v1c0 .537.12 1.045.337 1.5h6.326c.216-.455.337-.963.337-1.5V2zm3 6.35c0 .701-.478 1.236-1.011 1.492A3.5 3.5 0 0 0 4.5 13s.866-1.299 3-1.48zm1 0v3.17c2.134.181 3 1.48 3 1.48a3.5 3.5 0 0 0-1.989-3.158C8.978 9.586 8.5 9.052 8.5 8.351z"/>
             </svg>
 
-            Yaklaşan Filmler
+            Upcoming Movies
         </div>
 
         <div class="carousel-inner grid grid-cols-3 gap-4 transition-transform ease-in-out duration-500 " :style="{ 'transform': `translateX(-${currentUpcomingIndex * 200}px)` }">
@@ -220,7 +220,7 @@
                 <path d="M10 9.05a2.5 2.5 0 1 0 0-5 2.5 2.5 0 0 0 0 5"/>
                 <path d="M2 1a2 2 0 0 0-2 2v9a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V3a2 2 0 0 0-2-2zM1 3a1 1 0 0 1 1-1h2v2H1zm4 10V2h9a1 1 0 0 1 1 1v9c0 .285-.12.543-.31.725C14.15 11.494 12.822 10 10 10c-3.037 0-4.345 1.73-4.798 3zm-4-2h3v2H2a1 1 0 0 1-1-1zm3-1H1V8h3zm0-3H1V5h3z"/>
             </svg>
-            Popüler Aktörler - Yapımcılar
+            Popular Aktors
         </div>
 
         <div class="carousel-inner grid grid-cols-3 gap-4 transition-transform ease-in-out duration-500 " :style="{ 'transform': `translateX(-${currentActorIndex * 200}px)` }">
@@ -257,7 +257,7 @@
     </button>
 
 
-    <div class="container flex flex-col mx-auto bg-black" id="iletisim">
+    <div class="container flex flex-col mx-auto bg-black" id="support">
         <div class="w-full draggable">
             <div class="container flex flex-col items-center gap-8 mx-auto ">
                 <div class="grid w-full grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-3">
@@ -265,25 +265,25 @@
                     <span>
                         <img src="https://cdn-icons-png.freepik.com/512/2814/2814934.png" class="max-h-16">
                     </span>
-                        <p class="text-lg font-bold text-dark-grey-900">E-posta</p>
-                        <p class="text-base leading-6 text-dark-grey-600">Bize bu adresten ulaşın</p>
-                        <p class="text-base font-semibold text-purple-blue-500">iaminfo@gmail.com</p>
+                        <p class="text-lg font-bold text-dark-grey-900">Email</p>
+                        <p class="text-base leading-6 text-dark-grey-600">Contact us at</p>
+                        <p class="text-base font-semibold text-purple-blue-500">iam@gmail.com</p>
                     </div>
                     <div ref="iletisimDiv" class="flex flex-col items-center gap-3 px-6 py-8 bg-white rounded-3xl shadow-main">
                     <span>
                         <img src="https://www.creativefabrica.com/wp-content/uploads/2018/11/Earphone-icon-vector-by-rudezstudio-580x386.jpg" class="max-h-16">
                     </span>
-                        <p class="text-lg font-bold text-dark-grey-900">Telefon</p>
-                        <p class="text-base leading-6 text-dark-grey-600">Bize telefonla ulaşın</p>
+                        <p class="text-lg font-bold text-dark-grey-900">Phone</p>
+                        <p class="text-base leading-6 text-dark-grey-600">Reach out to us by phone</p>
                         <p class="text-base font-semibold text-purple-blue-500">+551-551-5515</p>
                     </div>
                     <div class="flex flex-col items-center gap-3 px-6 py-8 bg-white rounded-3xl shadow-main">
                     <span>
                         <img src="https://i.pinimg.com/originals/87/ee/a5/87eea5f5db0b138dc45dfb403570df6f.png" class="max-h-16">
                     </span>
-                        <p class="text-lg font-bold text-dark-grey-900">Konum</p>
-                        <p class="text-base leading-6 text-dark-grey-600">Bizi ofisimizde bulun</p>
-                        <a class="text-base font-semibold text-purple-blue-500" target="_blank" href="/">7.Albert Sokağı</a>
+                        <p class="text-lg font-bold text-dark-grey-900">Location</p>
+                        <p class="text-base leading-6 text-dark-grey-600">Find us at our office</p>
+                        <a class="text-base font-semibold text-purple-blue-500" target="_blank" href="/">10924 Urna Convallis</a>
                     </div>
                 </div>
             </div>
