@@ -18,15 +18,15 @@
                         <path d="M5 4a2 2 0 012-2h6a2 2 0 012 2v14l-5-2.5L5 18V4z" />
                     </svg>
                 </button>
-                <a :href="movie">
+                <a :href="'movie/' + movieDetail.movie_id">
                     <div class="border-2 rounded-xl">
                         <img :src="movieDetail?.movie?.poster" alt="Carousel Image" class="w-56 h-72 opacity-100 hover:opacity-90 border-2 rounded-lg">
                     </div>
                 </a>
                 <div class="flex flex-col items-center justify-center ">
-                    <a :href="movie" v-if="movieDetail?.movie?.title.substring()>movieDetail?.movie?.title.substring(0,21)" class="hover:underline text-gray-200 font-semibold text-base mt-3"> {{movieDetail?.movie?.title.substring(0,21)}}...</a>
+                    <a :href="'movie/' + movieDetail.movie_id" v-if="movieDetail?.movie?.title.substring()>movieDetail?.movie?.title.substring(0,21)" class="hover:underline text-gray-200 font-semibold text-base mt-3"> {{movieDetail?.movie?.title.substring(0,21)}}...</a>
 
-                    <a :href="movie" v-else class="hover:underline text-white font-semibold text-base mt-3"> {{movieDetail?.movie?.title}}</a>
+                    <a :href="'movie/' + movieDetail.movie_id" v-else class="hover:underline text-white font-semibold text-base mt-3"> {{movieDetail?.movie?.title}}</a>
 
                     <p class="flex text-black text-sm bg-white px-2 py-1 font-bold rounded-full mt-3">
                         <svg class="w-5 h-5 mr-[3px] text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 1 24 24">

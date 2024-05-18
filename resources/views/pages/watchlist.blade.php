@@ -1,4 +1,4 @@
 @extends('welcome')
 @section('content')
-    <about-page></about-page>
+    <watch-list></watch-list>
 @endsection

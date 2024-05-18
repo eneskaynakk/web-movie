@@ -29,25 +29,25 @@ Route::middleware('auth')->group(function () {
 Route::get('/movie/{id}', [MovieController::class, 'show'])->name('movies.show');
 
 Route::get('/login', function () {
-    return view('pages/loginpage');
+    return view('pages/loginform');
 })->middleware(['guest'])->name('login');
 
 Route::get('/register', function () {
-    return view('pages/registerpage');
+    return view('pages/registerform');
 })->middleware(['guest'])->name('register');
 
 Route::get('/watchlist', function () {
-        return view('pages/watchlistpage');
+        return view('pages/watchlist');
     })->middleware(['auth'])->name('watch');
 
-Route::get('/about', function () {
-    return view('pages/aboutpage');
+Route::get('/aboutus', function () {
+    return view('pages/aboutus');
 })->name('about');
 
-Route::get('/team', function () {
-    return view('pages/teampage');
+Route::get('/teamstaff', function () {
+    return view('pages/teamstaff');
 })->name('team');
 
 Route::get('/movie', function () {
-    return view('pages/moviepage');
+    return view('pages/moviedetail');
 })->name('movie');

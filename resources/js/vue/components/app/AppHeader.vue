@@ -5,20 +5,48 @@
 
             <div class="flex items-center space-x-6">
                 <a href="/" class="flex items-center space-x-2"><img :src="imgUrl" alt="Logo" class="h-[86px] w-[110px] flex items-center space-x-2"></a>
-                <a :href="watch">
-                    <button class="flex justify-center items-center rounded-lg text-white font-bold border-2 p-2 border-white transition-all duration-100 hover:shadow-md hover:bg-gradient-to-t hover:from-stone-100 before:to-stone-50 hover:-translate-y-[3px]">
+                <a :href="watch" class="flex justify-center items-center rounded-lg text-white font-bold border-2 p-2 border-white transition-all duration-100 hover:shadow-md hover:bg-gradient-to-t hover:from-stone-100 before:to-stone-50 hover:-translate-y-[3px]">
                         <svg xmlns="http://www.w3.org/2000/svg" class="h-7 w-7 mr-[2px] text-white" viewBox="0 0 20 20" fill="currentColor">
                             <path d="M5 4a2 2 0 012-2h6a2 2 0 012 2v14l-5-2.5L5 18V4z" />
                         </svg>
                         Watchlist
-                    </button>
                 </a>
 
-                <ul class="flex space-x-6 text-white">
-                    <li class="text-base"><a href="/"><i class="icofont-home text-xl"></i> Home </a></li>
-                    <li class="text-base"><a :href="about"><i class="icofont-info-circle text-xl"></i> About </a></li>
-                    <li class="text-base"><a :href="team"><i class="icofont-ui-user-group text-xl"></i> Team </a></li>
-                    <li class="text-base"><a :href="support()"><i class="icofont-phone text-xl"></i> Support </a></li>
+                <ul class="flex">
+                    <li >
+                        <a href="/" class="flex items-center">
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="w-5 h-5 mr-[5px] bi bi-house-door-fill" viewBox="0 1 16 16">
+                                <path d="M6.5 14.5v-3.505c0-.245.25-.495.5-.495h2c.25 0 .5.25.5.5v3.5a.5.5 0 0 0 .5.5h4a.5.5 0 0 0 .5-.5v-7a.5.5 0 0 0-.146-.354L13 5.793V2.5a.5.5 0 0 0-.5-.5h-1a.5.5 0 0 0-.5.5v1.293L8.354 1.146a.5.5 0 0 0-.708 0l-6 6A.5.5 0 0 0 1.5 7.5v7a.5.5 0 0 0 .5.5h4a.5.5 0 0 0 .5-.5"/>
+                            </svg>
+                            Home
+                        </a>
+                    </li>
+                    <li>
+                        <a :href="about" class="flex items-center">
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="w-5 h-5 mr-[5px] bi bi-info-square-fill" viewBox="0 0 16 16">
+                                <path d="M0 2a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2zm8.93 4.588-2.29.287-.082.38.45.083c.294.07.352.176.288.469l-.738 3.468c-.194.897.105 1.319.808 1.319.545 0 1.178-.252 1.465-.598l.088-.416c-.2.176-.492.246-.686.246-.275 0-.375-.193-.304-.533zM8 5.5a1 1 0 1 0 0-2 1 1 0 0 0 0 2"/>
+                            </svg>
+                            About
+                        </a>
+                    </li>
+                    <li>
+                        <a :href="team" class="flex items-center">
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="w-5 h-5 mr-[5px] bi bi-microsoft-teams" viewBox="0 0 16 16">
+                                <path d="M9.186 4.797a2.42 2.42 0 1 0-2.86-2.448h1.178c.929 0 1.682.753 1.682 1.682zm-4.295 7.738h2.613c.929 0 1.682-.753 1.682-1.682V5.58h2.783a.7.7 0 0 1 .682.716v4.294a4.197 4.197 0 0 1-4.093 4.293c-1.618-.04-3-.99-3.667-2.35Zm10.737-9.372a1.674 1.674 0 1 1-3.349 0 1.674 1.674 0 0 1 3.349 0m-2.238 9.488-.12-.002a5.2 5.2 0 0 0 .381-2.07V6.306a1.7 1.7 0 0 0-.15-.725h1.792c.39 0 .707.317.707.707v3.765a2.6 2.6 0 0 1-2.598 2.598z"/>
+                                <path d="M.682 3.349h6.822c.377 0 .682.305.682.682v6.822a.68.68 0 0 1-.682.682H.682A.68.68 0 0 1 0 10.853V4.03c0-.377.305-.682.682-.682Zm5.206 2.596v-.72h-3.59v.72h1.357V9.66h.87V5.945z"/>
+                            </svg>
+                            Team
+                        </a>
+                    </li>
+                    <li>
+                        <a :href="support()" class="flex items-center">
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="w-5 h-5 mr-[5px] bi bi-mic-fill" viewBox="0 0 16 16">
+                                <path d="M5 3a3 3 0 0 1 6 0v5a3 3 0 0 1-6 0z"/>
+                                <path d="M3.5 6.5A.5.5 0 0 1 4 7v1a4 4 0 0 0 8 0V7a.5.5 0 0 1 1 0v1a5 5 0 0 1-4.5 4.975V15h3a.5.5 0 0 1 0 1h-7a.5.5 0 0 1 0-1h3v-2.025A5 5 0 0 1 3 8V7a.5.5 0 0 1 .5-.5"/>
+                            </svg>
+                            Support
+                        </a>
+                    </li>
                 </ul>
             </div>
 
@@ -53,7 +81,7 @@
                             </svg>
                         </div>
                         <div>
-                            <span class="ml-2 text-white text-base font-bold ">{{  store?.user?.email }}</span>
+                            <span class="ml-2 text-white text-base font-bold ">{{  store?.user?.name }}</span>
                         </div>
                         <div class="rounded-md shadow-sm flex">
                             <button onclick="clicaParaAbrirMenu()" class="flex justify-center items-center  h-3 w-3 overflow-hidden focus:outline-none">
@@ -88,21 +116,17 @@
 
                 <template v-else>
                     <div>
-                        <a :href="register">
-                            <button class="flex justify-center items-center rounded-lg text-white font-bold border-2 p-2 border-white transition-all duration-100  hover:shadow-md hover:bg-gradient-to-t hover:from-stone-100 before:to-stone-50 hover:-translate-y-[3px]">
-                                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6  mr-[5px] text-white " viewBox="0 0 24 24" fill="none" stroke="#ffffff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="8.5" cy="7" r="4"></circle><line x1="20" y1="8" x2="20" y2="14"></line><line x1="23" y1="11" x2="17" y2="11"></line></svg>
-                                Sign Up
-                            </button>
+                        <a :href="register" class="flex justify-center items-center rounded-lg text-white font-bold border-2 p-2 border-white transition-all duration-100  hover:shadow-md hover:bg-gradient-to-t hover:from-stone-100 before:to-stone-50 hover:-translate-y-[3px]">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6  mr-[5px] text-white " viewBox="0 0 24 24" fill="none" stroke="#ffffff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="8.5" cy="7" r="4"></circle><line x1="20" y1="8" x2="20" y2="14"></line><line x1="23" y1="11" x2="17" y2="11"></line></svg>
+                            Sign Up
                         </a>
                     </div>
                     <div class="ml-6">
-                        <a :href="login">
-                            <button class="flex justify-center items-center rounded-lg text-white font-bold border-2 p-2 border-white transition-all duration-100 hover:shadow-md hover:bg-gradient-to-t hover:from-stone-100 before:to-stone-50 hover:-translate-y-[3px]">
-                                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 mr-[5px] text-white " viewBox="0 0 24 24" fill="none" stroke="#ffffff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                    <path d="M15 3h4a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2h-4M10 17l5-5-5-5M13.8 12H3"/>
-                                </svg>
-                                Login
-                            </button>
+                        <a :href="login" class="flex justify-center items-center rounded-lg text-white font-bold border-2 p-2 border-white transition-all duration-100 hover:shadow-md hover:bg-gradient-to-t hover:from-stone-100 before:to-stone-50 hover:-translate-y-[3px]">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 mr-[5px] text-white " viewBox="0 0 24 24" fill="none" stroke="#ffffff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M15 3h4a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2h-4M10 17l5-5-5-5M13.8 12H3"/>
+                            </svg>
+                            Login
                         </a>
                     </div>
                 </template>
@@ -147,6 +171,7 @@ const logout = () => {
     fetchData('api.logout').then(() => {
         store.user = null
         localStorage.removeItem('is_authenticated')
+        window.location.href = getRoute('index')
     })
 }
 

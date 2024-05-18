@@ -40,7 +40,7 @@ class MovieController extends Controller
     {
         $movie = Movie::findOrFail($id);
 
-        return view('pages.moviepage', ['movie' => $movie]);
+        return view('pages.moviedetail', ['movie' => $movie]);
     }
 
     /**

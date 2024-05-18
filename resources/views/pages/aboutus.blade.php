@@ -1,4 +1,4 @@
 @extends('welcome')
 @section('content')
-    <team-page></team-page>
+    <about-us></about-us>
 @endsection

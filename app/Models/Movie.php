@@ -24,8 +24,9 @@ class Movie extends Model
         'actor',
         'type',
         'country',
-        'award'
+        'award',
+        'imdbVote'
     ];
 
-  
+
 }

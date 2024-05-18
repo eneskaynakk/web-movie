@@ -73,6 +73,7 @@ class ProcessJsonData extends Command
                     'type' => $imdbDetail['Type'],
                     'country' => $imdbDetail['Country'],
                     'award' => $imdbDetail['Awards'],
+                    'imdbVote' => $imdbDetail['imdbVotes']
                 ];
                 Movie::create($movieData);
             }

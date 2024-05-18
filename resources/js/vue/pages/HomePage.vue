@@ -17,11 +17,11 @@
 
 
     <div class="carousel relative overflow-hidden mt-32">
-        <div class="flex text-white text-2xl font-bold mb-6">
-            <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="w-7 h-7 mr-[3px] bi bi-fire" viewBox="0 0 16 16">
+        <div class="flex mb-2 border-b-2">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="w-7 h-7 mr-[3px] text-white bi bi-fire" viewBox="0 0 16 16">
                 <path d="M8 16c3.314 0 6-2 6-5.5 0-1.5-.5-4-2.5-6 .25 1.5-1.25 2-1.25 2C11 4 9 .5 6 0c.357 2 .5 4-2 6-1.25 1-2 2.729-2 4.5C2 14 4.686 16 8 16m0-1c-1.657 0-3-1-3-2.75 0-.75.25-2 1.25-3C6.125 10 7 10.5 7 10.5c-.375-1.25.5-3.25 2-3.5-.179 1-.25 2 1 3 .625.5 1 1.364 1 2.25C11 14 9.657 15 8 15"/>
             </svg>
-            Popular Movies
+            <p class="text-white text-2xl font-bold">Popular Movies</p>
         </div>
 
         <div class="carousel-inner grid grid-cols-3 gap-4 py-4 transition-transform ease-in-out duration-500 " :style="{ 'transform': `translateX(-${currentPopularIndex * 200}px)` }">
@@ -43,9 +43,9 @@
                 </a>
                 <div class="flex flex-col items-center justify-center ">
 
-                    <a :href="movie" v-if="movieDetail.title.substring()>movieDetail.title.substring(0,21)" class="hover:underline text-gray-200 font-semibold text-base mt-3"> {{movieDetail.title.substring(0,21)}}...</a>
+                    <a :href="'movie/' + movieDetail.id" @click="addDetail(movieDetail.movie_id)" v-if="movieDetail.title.substring()>movieDetail.title.substring(0,21)" class="hover:underline text-gray-200 font-semibold text-base mt-3"> {{movieDetail.title.substring(0,21)}}...</a>
 
-                    <a :href="movie" v-else class="hover:underline text-white font-semibold text-base mt-3"> {{movieDetail.title}}</a>
+                    <a :href="'movie/' + movieDetail.id" @click="addDetail(movieDetail.movie_id)" v-else class="hover:underline text-white font-semibold text-base mt-3"> {{movieDetail.title}}</a>
 
                     <p class="flex text-black text-sm bg-white px-2 py-1 font-bold rounded-full mt-3">
                         <svg class="w-5 h-5 mr-[3px] text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 1 24 24">
@@ -57,7 +57,7 @@
 
                     <p class="flex rounded-full bg-white text-black font-bold border-2 p-1 mt-4 border-white">
                         <svg class="w-5 h-5 text-yellow-60 mr-[5px] dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 -1 24 24">
-                        <path d="M13.849 4.22c-.684-1.626-3.014-1.626-3.698 0L8.397 8.387l-4.552.361c-1.775.14-2.495 2.331-1.142 3.477l3.468 2.937-1.06 4.392c-.413 1.713 1.472 3.067 2.992 2.149L12 19.35l3.897 2.354c1.52.918 3.405-.436 2.992-2.15l-1.06-4.39 3.468-2.938c1.353-1.146.633-3.336-1.142-3.477l-4.552-.36-1.754-4.17Z"/>
+                            <path d="M13.849 4.22c-.684-1.626-3.014-1.626-3.698 0L8.397 8.387l-4.552.361c-1.775.14-2.495 2.331-1.142 3.477l3.468 2.937-1.06 4.392c-.413 1.713 1.472 3.067 2.992 2.149L12 19.35l3.897 2.354c1.52.918 3.405-.436 2.992-2.15l-1.06-4.39 3.468-2.938c1.353-1.146.633-3.336-1.142-3.477l-4.552-.36-1.754-4.17Z"/>
                         </svg>
                         {{movieDetail.rating}} / 10
                     </p>
@@ -75,17 +75,14 @@
     </button>
 
 
-
-
-
     <div class="carousel relative overflow-hidden mt-32">
 
-        <div class="flex text-white text-2xl font-bold mb-6 ">
-            <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="w-7 h-7 mr-[3px] bi bi-award-fill" viewBox="0 0 16 16">
+        <div class="flex mb-2 border-b-2">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="w-7 h-7 mr-[3px] text-white bi bi-award-fill" viewBox="0 0 16 16">
                 <path d="m8 0 1.669.864 1.858.282.842 1.68 1.337 1.32L13.4 6l.306 1.854-1.337 1.32-.842 1.68-1.858.282L8 12l-1.669-.864-1.858-.282-.842-1.68-1.337-1.32L2.6 6l-.306-1.854 1.337-1.32.842-1.68L6.331.864z"/>
                 <path d="M4 11.794V16l4-1 4 1v-4.206l-2.018.306L8 13.126 6.018 12.1z"/>
             </svg>
-            Top Rated Movies
+            <p class="text-white font-bold text-2xl">Top Rated Movies</p>
         </div>
 
         <div class="carousel-inner grid grid-cols-3 gap-4 transition-transform ease-in-out duration-500 " :style="{ 'transform': `translateX(-${currentTopIndex * 200}px)` }">
@@ -141,13 +138,11 @@
                     <h1 role="heading" class="text-xl md:text-2xl lg:text-4xl xl:text-4xl lg:w-10/12 text-white font-black leading-6 lg:leading-10 md:text-left text-center">How about joining our Discord channel and becoming one of us?</h1>
                 </div>
                 <div class="flex">
-                    <a href="/">
-                        <button class="flex mt-6 justify-center items-center rounded-lg text-black text-2xl font-bold border-2 p-4 border-white bg-white opacity-100 hover:opacity-90">
+                    <a href="https://discord.gg/u9yb5nqm" target="_blank" class="flex mt-6 justify-center items-center rounded-lg text-black text-2xl font-bold border-2 p-4 border-white bg-white opacity-100 hover:opacity-90">
                             <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="w-8 h-8 mr-[10px] bi bi-discord" viewBox="0 0 16 16">
                                 <path d="M13.545 2.907a13.2 13.2 0 0 0-3.257-1.011.05.05 0 0 0-.052.025c-.141.25-.297.577-.406.833a12.2 12.2 0 0 0-3.658 0 8 8 0 0 0-.412-.833.05.05 0 0 0-.052-.025c-1.125.194-2.22.534-3.257 1.011a.04.04 0 0 0-.021.018C.356 6.024-.213 9.047.066 12.032q.003.022.021.037a13.3 13.3 0 0 0 3.995 2.02.05.05 0 0 0 .056-.019q.463-.63.818-1.329a.05.05 0 0 0-.01-.059l-.018-.011a9 9 0 0 1-1.248-.595.05.05 0 0 1-.02-.066l.015-.019q.127-.095.248-.195a.05.05 0 0 1 .051-.007c2.619 1.196 5.454 1.196 8.041 0a.05.05 0 0 1 .053.007q.121.1.248.195a.05.05 0 0 1-.004.085 8 8 0 0 1-1.249.594.05.05 0 0 0-.03.03.05.05 0 0 0 .003.041c.24.465.515.909.817 1.329a.05.05 0 0 0 .056.019 13.2 13.2 0 0 0 4.001-2.02.05.05 0 0 0 .021-.037c.334-3.451-.559-6.449-2.366-9.106a.03.03 0 0 0-.02-.019m-8.198 7.307c-.789 0-1.438-.724-1.438-1.612s.637-1.613 1.438-1.613c.807 0 1.45.73 1.438 1.613 0 .888-.637 1.612-1.438 1.612m5.316 0c-.788 0-1.438-.724-1.438-1.612s.637-1.613 1.438-1.613c.807 0 1.451.73 1.438 1.613 0 .888-.631 1.612-1.438 1.612"/>
                             </svg>
                             Join Now
-                        </button>
                     </a>
                 </div>
             </div>
@@ -160,12 +155,11 @@
 
     <div class="carousel relative overflow-hidden mt-32">
 
-        <div class="flex text-white text-2xl font-bold mb-6">
-            <svg xmlns="http://www.w3.org/2000/svg"  fill="currentColor" class="w-7 h-7 mr-[3px] bi bi-hourglass-split" viewBox="0 -1 16 16">
+        <div class="flex mb-6 border-b-2">
+            <svg xmlns="http://www.w3.org/2000/svg"  fill="currentColor" class="w-7 h-7 mr-[3px] text-white bi bi-hourglass-split" viewBox="0 -1 16 16">
                 <path d="M2.5 15a.5.5 0 1 1 0-1h1v-1a4.5 4.5 0 0 1 2.557-4.06c.29-.139.443-.377.443-.59v-.7c0-.213-.154-.451-.443-.59A4.5 4.5 0 0 1 3.5 3V2h-1a.5.5 0 0 1 0-1h11a.5.5 0 0 1 0 1h-1v1a4.5 4.5 0 0 1-2.557 4.06c-.29.139-.443.377-.443.59v.7c0 .213.154.451.443.59A4.5 4.5 0 0 1 12.5 13v1h1a.5.5 0 0 1 0 1zm2-13v1c0 .537.12 1.045.337 1.5h6.326c.216-.455.337-.963.337-1.5V2zm3 6.35c0 .701-.478 1.236-1.011 1.492A3.5 3.5 0 0 0 4.5 13s.866-1.299 3-1.48zm1 0v3.17c2.134.181 3 1.48 3 1.48a3.5 3.5 0 0 0-1.989-3.158C8.978 9.586 8.5 9.052 8.5 8.351z"/>
             </svg>
-
-            Upcoming Movies
+            <p class="text-white font-bold text-2xl">Upcoming Movies</p>
         </div>
 
         <div class="carousel-inner grid grid-cols-3 gap-4 transition-transform ease-in-out duration-500 " :style="{ 'transform': `translateX(-${currentUpcomingIndex * 200}px)` }">
@@ -213,14 +207,14 @@
     <svg xmlns="http://www.w3.org/2000/svg" class="w-12 h-12" viewBox="0 0 24 24" fill="none" stroke="#ffffff" stroke-width="2" stroke-linecap="round" stroke-linejoin="arcs"><path d="M9 18l6-6-6-6"/></svg>
     </button>
 
-    <div class="carousel relative overflow-hidden mt-32 mb-32">
 
-        <div class="flex text-white text-2xl font-bold mb-6 ">
-            <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="w-7 h-7 mr-[7px] bi bi-person-video2" viewBox="0 -1 16 16">
+    <div class="carousel relative overflow-hidden mt-32 mb-32">
+        <div class="flex mb-2 border-b-2">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="w-7 h-7 mr-[7px] text-white bi bi-person-video2" viewBox="0 -1 16 16">
                 <path d="M10 9.05a2.5 2.5 0 1 0 0-5 2.5 2.5 0 0 0 0 5"/>
                 <path d="M2 1a2 2 0 0 0-2 2v9a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V3a2 2 0 0 0-2-2zM1 3a1 1 0 0 1 1-1h2v2H1zm4 10V2h9a1 1 0 0 1 1 1v9c0 .285-.12.543-.31.725C14.15 11.494 12.822 10 10 10c-3.037 0-4.345 1.73-4.798 3zm-4-2h3v2H2a1 1 0 0 1-1-1zm3-1H1V8h3zm0-3H1V5h3z"/>
             </svg>
-            Popular Aktors
+            <p class="text-white text-2xl font-bold">Popular Aktors</p>
         </div>
 
         <div class="carousel-inner grid grid-cols-3 gap-4 transition-transform ease-in-out duration-500 " :style="{ 'transform': `translateX(-${currentActorIndex * 200}px)` }">
@@ -298,7 +292,7 @@ import {getRoute, fetchData} from "@utils/helpers.js";
 import { useAuthStore } from '@stores/authStore'
 
 
-//Database veri çekme işlemi
+//Retrieving data from database
 const { movies } = defineProps(['movies'])
 //
 
@@ -306,7 +300,7 @@ const { movies } = defineProps(['movies'])
 const movie = getRoute('movie')
 const watch = getRoute('watch')
 
-//Mega Movie Image Slider
+//Big movie image slider
 const megaImgUrl1 = new URL('@images/thegodfather.jpg', import.meta.url).href;
 const megaImgUrl2 = new URL('@images/yesilyol.jpg', import.meta.url).href;
 const megaImgUrl3 = new URL('@images/lifeofpi.jpg', import.meta.url).href;
@@ -339,7 +333,7 @@ onUnmounted(() => {
     stopInterval();
 });
 
-//Popular Movie Image Slider
+//Popular movie image slider
 const currentPopularIndex = ref(0);
 
 const prevPopularItem = () => {
@@ -356,7 +350,7 @@ const nextPopularItem = () => {
 };
 
 
-//Top Rated Movie Image Slider
+//Top rated movie image slider
 const currentTopIndex = ref(0);
 
 const prevTopItem = () => {
@@ -388,7 +382,7 @@ const nextUpcomingItem = () => {
     }
 };
 
-//Popular Actor-Producer Movie Image Slider
+//Popular Actor Movie Image Slider
 const currentActorIndex = ref(0);
 
 const prevActorItem = () => {

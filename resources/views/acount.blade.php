@@ -9,8 +9,8 @@
         @vite(['resources/js/app.js', 'resources/style/sass/app.scss'])
     </head>
     <body id="app">
-        <relog-layout>
+        <acount-layout>
             @yield('content')
-        </relog-layout>
+        </acount-layout>
     </body>
 </html>

@@ -25,7 +25,7 @@
                         </div>
                         <div class="mt-36 p-6 z-10 w-full ">
                             <p class="mb-2 inline-block text-black text-tg text-center w-full text-xl font-sans font-semibold leading-snug tracking-normal antialiased">
-                                IAM film sektörüne adanmış bir platformdur, sinemaseverler için geniş bir içerik yelpazesi sunar. En yeni film verilerinden, sektördeki güncel gelişmelere kadar her şeyi burada bulabilirsiniz. Sinema tutkunları için vazgeçilmez bir kaynak olmaktan gurur duyuyoruz.
+                                IAM offers a wide range of services to enhance your movie-watching experience, from personalized recommendations to advanced search features.
                             </p>
                         </div>
                     </div>
@@ -41,7 +41,7 @@
                         </div>
                         <div class="mt-36 p-6 z-10 w-full ">
                             <p class="mb-2 inline-block text-black text-tg text-center w-full text-xl font-sans font-semibold leading-snug tracking-normal antialiased">
-                                2019 yılında Türk mühendisler tarafından kurulan, çok yönlü film bilgi sistemi şirketi IAM, deneyimli ekibi, güçlü kurumsal yapısı ve inovasyon kültürüyle üye iş yerlerinin hayatlarını kolaylaştıracak inovatif ürün ve teknolojiler geliştirerek, yenilikçi ve sürdürülebilirdir.
+                                IAM stands out because we are dedicated to bringing you the best movies, tailored to your preferences, ensuring a delightful experience every time.
                             </p>
                         </div>
                     </div>
@@ -57,7 +57,7 @@
                         </div>
                         <div class="mt-36 p-6 z-10 w-full ">
                             <p class="mb-2 inline-block text-black text-tg text-center w-full text-xl font-sans font-semibold leading-snug tracking-normal antialiased">
-                                2019 yılında Türk mühendisler tarafından kurulan, çok yönlü film bilgi sistemi şirketi IAM, deneyimli ekibi, güçlü kurumsal yapısı ve inovasyon kültürüyle üye iş yerlerinin hayatlarını kolaylaştıracak inovatif ürün ve teknolojiler geliştirerek, yenilikçi ve sürdürülebilirdir.
+                                We take pride in our achievements, including delivering top-notch movie recommendations and creating a community of movie enthusiasts.
                             </p>
                         </div>
                     </div>
@@ -73,7 +73,7 @@
                         </div>
                         <div class="mt-36 p-6 z-10 w-full ">
                             <p class="mb-2 inline-block text-black text-tg text-center w-full text-xl font-sans font-semibold leading-snug tracking-normal antialiased">
-                                2019 yılında Türk mühendisler tarafından kurulan, çok yönlü film bilgi sistemi şirketi IAM, deneyimli ekibi, güçlü kurumsal yapısı ve inovasyon kültürüyle üye iş yerlerinin hayatlarını kolaylaştıracak inovatif ürün ve teknolojiler geliştirerek, yenilikçi ve sürdürülebilirdir.
+                                Join IAM and be a part of a team passionate about movies. Explore exciting career opportunities that match your skills and interests.
                             </p>
                         </div>
                     </div>
@@ -89,7 +89,7 @@
                         </div>
                         <div class="mt-36 p-6 z-10 w-full ">
                             <p class="mb-2 inline-block text-black text-tg text-center w-full text-xl font-sans font-semibold leading-snug tracking-normal antialiased">
-                                2019 yılında Türk mühendisler tarafından kurulan, çok yönlü film bilgi sistemi şirketi IAM, deneyimli ekibi, güçlü kurumsal yapısı ve inovasyon kültürüyle üye iş yerlerinin hayatlarını kolaylaştıracak inovatif ürün ve teknolojiler geliştirerek, yenilikçi ve sürdürülebilirdir.
+                                IAM collaborates with leading movie studios and content providers to bring you a vast and diverse selection of movies.
                             </p>
                         </div>
                     </div>
@@ -105,7 +105,7 @@
                         </div>
                         <div class="mt-36 p-6 z-10 w-full ">
                             <p class="mb-2 inline-block text-black text-tg text-center w-full text-xl font-sans font-semibold leading-snug tracking-normal antialiased">
-                                2019 yılında Türk mühendisler tarafından kurulan, çok yönlü film bilgi sistemi şirketi IAM, deneyimli ekibi, güçlü kurumsal yapısı ve inovasyon kültürüyle üye iş yerlerinin hayatlarını kolaylaştıracak inovatif ürün ve teknolojiler geliştirerek, yenilikçi ve sürdürülebilirdir.
+                                Dive into the world of movies with IAM Blog, where we share insights, reviews, and news about the latest releases and industry trends.
                             </p>
                         </div>
                     </div>
@@ -121,7 +121,7 @@
                         </div>
                         <div class="mt-36 p-6 z-10 w-full ">
                             <p class="mb-2 inline-block text-black text-tg text-center w-full text-xl font-sans font-semibold leading-snug tracking-normal antialiased">
-                                2019 yılında Türk mühendisler tarafından kurulan, çok yönlü film bilgi sistemi şirketi IAM, deneyimli ekibi, güçlü kurumsal yapısı ve inovasyon kültürüyle üye iş yerlerinin hayatlarını kolaylaştıracak inovatif ürün ve teknolojiler geliştirerek, yenilikçi ve sürdürülebilirdir.
+                                IAM seamlessly integrates with various platforms and devices, ensuring you can enjoy your favorite movies wherever you are.
                             </p>
                         </div>
                     </div>
@@ -137,7 +137,7 @@
                         </div>
                         <div class="mt-36 p-6 z-10 w-full ">
                             <p class="mb-2 inline-block text-black text-tg text-center w-full text-xl font-sans font-semibold leading-snug tracking-normal antialiased">
-                                2019 yılında Türk mühendisler tarafından kurulan, çok yönlü film bilgi sistemi şirketi IAM, deneyimli ekibi, güçlü kurumsal yapısı ve inovasyon kültürüyle üye iş yerlerinin hayatlarını kolaylaştıracak inovatif ürün ve teknolojiler geliştirerek, yenilikçi ve sürdürülebilirdir.
+                                Subscribe to IAM easily with flexible plans that fit your budget, giving you access to a vast library of movies and exclusive content.
                             </p>
                         </div>
                     </div>
@@ -153,7 +153,7 @@
                         </div>
                         <div class="mt-36 p-6 z-10 w-full ">
                             <p class="mb-2 inline-block text-black text-tg text-center w-full text-xl font-sans font-semibold leading-snug tracking-normal antialiased">
-                                2019 yılında Türk mühendisler tarafından kurulan, çok yönlü film bilgi sistemi şirketi IAM, deneyimli ekibi, güçlü kurumsal yapısı ve inovasyon kültürüyle üye iş yerlerinin hayatlarını kolaylaştıracak inovatif ürün ve teknolojiler geliştirerek, yenilikçi ve sürdürülebilirdir.
+                                Our Terms of Service outline the rules and guidelines for using IAM, ensuring a safe and enjoyable experience for all users.
                             </p>
                         </div>
                     </div>
@@ -169,7 +169,7 @@
                         </div>
                         <div class="mt-36 p-6 z-10 w-full ">
                             <p class="mb-2 inline-block text-black text-tg text-center w-full text-xl font-sans font-semibold leading-snug tracking-normal antialiased">
-                                2019 yılında Türk mühendisler tarafından kurulan, çok yönlü film bilgi sistemi şirketi IAM, deneyimli ekibi, güçlü kurumsal yapısı ve inovasyon kültürüyle üye iş yerlerinin hayatlarını kolaylaştıracak inovatif ürün ve teknolojiler geliştirerek, yenilikçi ve sürdürülebilirdir.
+                                IAM's Cookie Policy explains how we use cookies to enhance your browsing experience and improve our services.
                             </p>
                         </div>
                     </div>
@@ -185,7 +185,7 @@
                         </div>
                         <div class="mt-36 p-6 z-10 w-full ">
                             <p class="mb-2 inline-block text-black text-tg text-center w-full text-xl font-sans font-semibold leading-snug tracking-normal antialiased">
-                                2019 yılında Türk mühendisler tarafından kurulan, çok yönlü film bilgi sistemi şirketi IAM, deneyimli ekibi, güçlü kurumsal yapısı ve inovasyon kültürüyle üye iş yerlerinin hayatlarını kolaylaştıracak inovatif ürün ve teknolojiler geliştirerek, yenilikçi ve sürdürülebilirdir.
+                                Your privacy is important to us. IAM's Privacy Policy details how we collect, use, and protect your personal information.
                             </p>
                         </div>
                     </div>
@@ -201,7 +201,7 @@
                         </div>
                         <div class="mt-36 p-6 z-10 w-full ">
                             <p class="mb-2 inline-block text-black text-tg text-center w-full text-xl font-sans font-semibold leading-snug tracking-normal antialiased">
-                                2019 yılında Türk mühendisler tarafından kurulan, çok yönlü film bilgi sistemi şirketi IAM, deneyimli ekibi, güçlü kurumsal yapısı ve inovasyon kültürüyle üye iş yerlerinin hayatlarını kolaylaştıracak inovatif ürün ve teknolojiler geliştirerek, yenilikçi ve sürdürülebilirdir.
+                                IAM's compliance with KVKK ensures that your personal data is handled with the utmost care and in accordance with Turkish data protection laws.
                             </p>
                         </div>
                     </div>
@@ -217,7 +217,7 @@
                         </div>
                         <div class="mt-36 p-6 z-10 w-full ">
                             <p class="mb-2 inline-block text-black text-tg text-center w-full text-xl font-sans font-semibold leading-snug tracking-normal antialiased">
-                                2019 yılında Türk mühendisler tarafından kurulan, çok yönlü film bilgi sistemi şirketi IAM, deneyimli ekibi, güçlü kurumsal yapısı ve inovasyon kültürüyle üye iş yerlerinin hayatlarını kolaylaştıracak inovatif ürün ve teknolojiler geliştirerek, yenilikçi ve sürdürülebilirdir.
+                                At IAM, we prioritize the security of your data. Our Security measures ensure your information is protected from unauthorized access.
                             </p>
                         </div>
                     </div>
@@ -233,7 +233,7 @@
                         </div>
                         <div class="mt-36 p-6 z-10 w-full ">
                             <p class="mb-2 inline-block text-black text-tg text-center w-full text-xl font-sans font-semibold leading-snug tracking-normal antialiased">
-                                2019 yılında Türk mühendisler tarafından kurulan, çok yönlü film bilgi sistemi şirketi IAM, deneyimli ekibi, güçlü kurumsal yapısı ve inovasyon kültürüyle üye iş yerlerinin hayatlarını kolaylaştıracak inovatif ürün ve teknolojiler geliştirerek, yenilikçi ve sürdürülebilirdir.
+                                IAM's Information Security Policy outlines our commitment to maintaining the confidentiality, integrity, and availability of your data.
                             </p>
                         </div>
                     </div>
@@ -249,7 +249,7 @@
                         </div>
                         <div class="mt-36 p-6 z-10 w-full ">
                             <p class="mb-2 inline-block text-black text-tg text-center w-full text-xl font-sans font-semibold leading-snug tracking-normal antialiased">
-                                2019 yılında Türk mühendisler tarafından kurulan, çok yönlü film bilgi sistemi şirketi IAM, deneyimli ekibi, güçlü kurumsal yapısı ve inovasyon kültürüyle üye iş yerlerinin hayatlarını kolaylaştıracak inovatif ürün ve teknolojiler geliştirerek, yenilikçi ve sürdürülebilirdir.
+                                As an Information Society Service provider, IAM is committed to delivering high-quality movie-related services in accordance with legal requirements.
                             </p>
                         </div>
                     </div>
