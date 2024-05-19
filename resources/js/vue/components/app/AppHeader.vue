@@ -58,15 +58,21 @@
                 </button>
 
                 <div class="relative">
-                    <input name="fsrch" v-model="search"  @input="getMovies" id="fsrch" ref="fscrh"
-                    class="bg-white text-black bold w-96 h-10 p-2 rounded-r-lg" placeholder="Search IAM...">
-                    <div v-if="search " class="absolute z-10 bg-white rounded-lg w-96 mt-2 pr-16">
-                        <a href="/movie">
-                            <div v-for="movie in movies.slice(0,5)" :key="movie.id" class="items-center grid grid-cols-2 hover:underline opacity-100 hover:opacity-80">
+                    <input name="fsrch" v-model="search" @input="getMovies" id="fsrch" ref="fscrh"  class="bg-white text-black bold w-96 h-10 p-2 rounded-r-lg" placeholder="Search IAM...">
+                    <button v-if="search" @click="search=''" class="absolute right-[3px] top-[8px]">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class=" text-black w-6 h-6 bi bi-x" viewBox="0 0 16 16">
+                            <path d="M4.646 4.646a.5.5 0 0 1 .708 0L8 7.293l2.646-2.647a.5.5 0 0 1 .708.708L8.707 8l2.647 2.646a.5.5 0 0 1-.708.708L8 8.707l-2.646 2.647a.5.5 0 0 1-.708-.708L7.293 8 4.646 5.354a.5.5 0 0 1 0-.708"/>
+                        </svg>
+                    </button>
+                    <div v-if="search" class="absolute z-10 bg-white rounded-lg w-96 mt-2 pr-16">
+                        <div v-for="movie in movies.slice(0,5)" :key="movie.id" class="items-center grid grid-cols-2 hover:underline opacity-100 hover:opacity-80">
+                            <a :href="'movie/' + movie.id">
                                 <img :src="movie.poster" class="w-32 h-36 m-2 rounded-lg">
+                            </a>
+                            <a :href="'movie/' + movie.id">
                                 <p class="text-black text-[15px] mr-6 mt-0 mb-0 font-bold hover:underline">{{ movie.title }}</p>
-                            </div>
-                        </a>
+                            </a>
+                        </div>
                     </div>
                 </div>
             </div>

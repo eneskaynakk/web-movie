@@ -1,20 +1,16 @@
 <template>
 
-    <div class="bg-white"></div>
-    <div class="carousel-container relative">
-        <div class="carousel-wrapper q-pa-md">
-            <transition name="slide" mode="out-in">
-                <img :src="currentImageUrl" class="carousel-image" alt="Carousel Image" />
-            </transition>
+    <div class="carousel-container relative ">
+        <div name="slide" mode="out-in">
+            <img :src="currentImageUrl1" class="carousel-image" alt="Carousel Image" />
         </div>
-        <button @click="prevImage" class="prev-btn absolute top-1/2 left-4 transform -translate-y-1/2 opacity-100 hover:opacity-90 bg-white text-black px-4 py-2 rounded">
-            <
+        <button @click="prevImage" class="prev-btn absolute top-1/2 opacity-100 hover:opacity-90 text-black ">
+            <svg xmlns="http://www.w3.org/2000/svg" class=" w-12 h-12" viewBox="0 0 24 24" fill="none" stroke="#ffffff" stroke-width="2" stroke-linecap="round" stroke-linejoin="arcs"><path d="M15 18l-6-6 6-6"/></svg>
         </button>
-        <button @click="nextImage" class="next-btn absolute top-1/2 right-4 transform -translate-y-1/2 opacity-100 hover:opacity-90 bg-white text-black px-4 py-2 rounded">
-            >
+        <button @click="nextImage" class="next-btn absolute top-1/2 right-2 opacity-100 hover:opacity-90 text-black ">
+            <svg xmlns="http://www.w3.org/2000/svg" class="w-12 h-12" viewBox="0 0 24 24" fill="none" stroke="#ffffff" stroke-width="2" stroke-linecap="round" stroke-linejoin="arcs"><path d="M9 18l6-6-6-6"/></svg>
         </button>
     </div>
-
 
     <div class="carousel relative overflow-hidden mt-32">
         <div class="flex mb-2 border-b-2">
@@ -291,14 +287,12 @@ import { ref, reactive, onMounted, onUnmounted} from 'vue';
 import {getRoute, fetchData} from "@utils/helpers.js";
 import { useAuthStore } from '@stores/authStore'
 
+const movie = getRoute('movie')
+const watch = getRoute('watch')
 
 //Retrieving data from database
 const { movies } = defineProps(['movies'])
 //
-
-
-const movie = getRoute('movie')
-const watch = getRoute('watch')
 
 //Big movie image slider
 const megaImgUrl1 = new URL('@images/thegodfather.jpg', import.meta.url).href;
@@ -306,21 +300,24 @@ const megaImgUrl2 = new URL('@images/yesilyol.jpg', import.meta.url).href;
 const megaImgUrl3 = new URL('@images/lifeofpi.jpg', import.meta.url).href;
 
 const images = ref([megaImgUrl1, megaImgUrl2, megaImgUrl3]);
-const currentImageIndex = ref(0);
-const currentImageUrl = ref(images.value[currentImageIndex.value]);
+const currentImageIndex1 = ref(0);
+const currentImageUrl1 = ref(images.value[currentImageIndex1.value]);
 
 const nextImage = () => {
-    currentImageIndex.value = (currentImageIndex.value + 1) % images.value.length;
-    currentImageUrl.value = images.value[currentImageIndex.value];
+    currentImageIndex1.value = (currentImageIndex1.value + 1) % images.value.length;
+    currentImageUrl1.value = images.value[currentImageIndex1.value];
 };
+
 const prevImage = () => {
-    currentImageIndex.value = (currentImageIndex.value - 1 + images.value.length) % images.value.length;
-    currentImageUrl.value = images.value[currentImageIndex.value];
+    currentImageIndex1.value = (currentImageIndex1.value - 1 + images.value.length) % images.value.length;
+    currentImageUrl1.value = images.value[currentImageIndex1.value];
 };
+
 let interval;
 const startInterval = () => {
-    interval = setInterval(nextImage, 5000);
+    interval = setInterval(nextImage, 9000);
 };
+
 const stopInterval = () => {
     clearInterval(interval);
 };
@@ -348,7 +345,6 @@ const nextPopularItem = () => {
         currentPopularIndex.value = 0;
     }
 };
-
 
 //Top rated movie image slider
 const currentTopIndex = ref(0);

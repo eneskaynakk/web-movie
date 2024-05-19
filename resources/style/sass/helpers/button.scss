@@ -58,20 +58,13 @@ nav ul li:hover a::after { /* :hover durumunda çizgi görünür hale gelir */
 }
 
 .carousel-container {
-    max-width: 1300px;
+    max-width: full;
     margin: auto;
-}
-
-.carousel-wrapper {
-    overflow: hidden;
-    border-radius: 8px;
-    max-width: 100%;
-    max-height: 1000px;
 }
 
 .carousel-image {
     width: 100%;
-    height: auto;
+    height: 700px;
 }
 
 .slide-enter-active,
@@ -84,11 +77,6 @@ nav ul li:hover a::after { /* :hover durumunda çizgi görünür hale gelir */
     opacity: 0;
 }
 
-.prev-btn,
-.next-btn {
-    font-size: 1rem;
-    cursor: pointer;
-}
 .btn-film-list{
     @apply
     text-center
