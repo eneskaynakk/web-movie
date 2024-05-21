@@ -30,14 +30,20 @@
                             <input type="password" name="confirm-password" v-model="form.password_confirmation" class="inline-block w-full rounded-full bg-white p-2.5 leading-none text-black placeholder-indigo-900 shadowplaceholder-indigo-900 placeholder:opacity-30" placeholder="********"/>
                         </div>
 
-                        <div class="my-10">
-                            <button type="submit" class="block w-full text-center text-black rounded-full bg-green-50 p-5 hover:bg-gray-200">Sign Up</button>
+                        <div class="mt-8">
+                            <button type="submit" class="font-bold hover:bg-black hover:text-white hover:ring hover:ring-white transition duration-300 inline-flex items-center justify-center rounded-full text-base focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 bg-white text-black py-4 w-full">Sign Up</button>
                         </div>
 
+                        <div class=" flex justify-end">
+                            <p class="flex mr-3 my-7 text-white rounded-lg bg-black">Have an account?</p>
+                            <a :href="login" class="bg-white text-black h-10 px-4 py-2 my-5 font-semibold hover:bg-black hover:text-white hover:ring hover:ring-white transition duration-300 inline-flex items-center justify-center rounded-md text-sm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 ">
+                                Login
+                            </a>
+                        </div>
+
+
+
                     </form>
-                    <div class="my-10">
-                        <a :href="login"><button  class="block w-full text-center text-black rounded-full bg-green-50 p-5 hover:bg-gray-200">Login</button></a>
-                    </div>
                 </div>
             </div>
         </div>
@@ -58,6 +64,7 @@ const login = getRoute('login')
 
 const form = reactive({ name: null, email: null, password: null, password_confirmation: null })
 const errors = reactive({})
+
 
 const register = () =>
     fetchData('api.register', {}, form)

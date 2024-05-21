@@ -2,7 +2,6 @@ import './bootstrap';
 import { createPinia } from 'pinia';
 import piniaPluginPersistedstate from 'pinia-plugin-persistedstate'
 import { createApp } from 'vue';
-
 import AppLayout from '$vue/layout/AppLayout.vue';
 import AcountLayout from '$vue/layout/AcountLayout.vue';
 
@@ -29,6 +28,5 @@ createApp()
 .component('RegisterForm', RegisterForm)
 .component('LoginForm', LoginForm)
 .component('MovieDetail', MovieDetail)
-
 .use(pinia)
 .mount('#app')

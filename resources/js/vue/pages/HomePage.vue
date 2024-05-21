@@ -62,11 +62,11 @@
             </div>
         </div>
     </div>
-    <button class="prev absolute top-[1100px] left-32 text-black  transform -translate-y-1/2 rounded-lg  opacity-100 hover:opacity-90" @click="prevPopularItem">
+    <button class="prev absolute top-[1050px] left-32 text-black  transform -translate-y-1/2 rounded-lg  opacity-100 hover:opacity-90" @click="prevPopularItem">
         <svg xmlns="http://www.w3.org/2000/svg" class=" w-12 h-12" viewBox="0 0 24 24" fill="none" stroke="#ffffff" stroke-width="2" stroke-linecap="round" stroke-linejoin="arcs"><path d="M15 18l-6-6 6-6"/></svg>
     </button>
 
-    <button class="next absolute top-[1100px] right-32 text-black transform -translate-y-1/2 rounded-lg  opacity-100 hover:opacity-90" @click="nextPopularItem">
+    <button class="next absolute top-[1050px] right-32 text-black transform -translate-y-1/2 rounded-lg  opacity-100 hover:opacity-90" @click="nextPopularItem">
         <svg xmlns="http://www.w3.org/2000/svg" class="w-12 h-12" viewBox="0 0 24 24" fill="none" stroke="#ffffff" stroke-width="2" stroke-linecap="round" stroke-linejoin="arcs"><path d="M9 18l6-6-6-6"/></svg>
     </button>
 
@@ -118,11 +118,11 @@
             </div>
         </div>
     </div>
-    <button class="prev absolute top-[1730px] left-32 text-black  transform -translate-y-1/2 rounded-lg  opacity-100 hover:opacity-90" @click="prevTopItem">
+    <button class="prev absolute top-[1670px] left-32 text-black  transform -translate-y-1/2 rounded-lg  opacity-100 hover:opacity-90" @click="prevTopItem">
     <svg xmlns="http://www.w3.org/2000/svg" class=" w-12 h-12" viewBox="0 0 24 24" fill="none" stroke="#ffffff" stroke-width="2" stroke-linecap="round" stroke-linejoin="arcs"><path d="M15 18l-6-6 6-6"/></svg>
     </button>
 
-    <button class="next absolute top-[1730px] right-32 text-black transform -translate-y-1/2 rounded-lg  opacity-100 hover:opacity-90" @click="nextTopItem">
+    <button class="next absolute top-[1670px] right-32 text-black transform -translate-y-1/2 rounded-lg  opacity-100 hover:opacity-90" @click="nextTopItem">
     <svg xmlns="http://www.w3.org/2000/svg" class="w-12 h-12" viewBox="0 0 24 24" fill="none" stroke="#ffffff" stroke-width="2" stroke-linecap="round" stroke-linejoin="arcs"><path d="M9 18l6-6-6-6"/></svg>
     </button>
 
@@ -195,16 +195,45 @@
             </div>
         </div>
     </div>
-    <button class="prev absolute top-[2920px] left-32 text-black  transform -translate-y-1/2 rounded-lg  opacity-100 hover:opacity-90" @click="prevUpcomingItem">
+    <button class="prev absolute top-[2860px] left-32 text-black  transform -translate-y-1/2 rounded-lg  opacity-100 hover:opacity-90" @click="prevUpcomingItem">
     <svg xmlns="http://www.w3.org/2000/svg" class=" w-12 h-12" viewBox="0 0 24 24" fill="none" stroke="#ffffff" stroke-width="2" stroke-linecap="round" stroke-linejoin="arcs"><path d="M15 18l-6-6 6-6"/></svg>
     </button>
 
-    <button class="next absolute top-[2920px] right-32 text-black transform -translate-y-1/2 rounded-lg  opacity-100 hover:opacity-90" @click="nextUpcomingItem">
+    <button class="next absolute top-[2860px] right-32 text-black transform -translate-y-1/2 rounded-lg  opacity-100 hover:opacity-90" @click="nextUpcomingItem">
     <svg xmlns="http://www.w3.org/2000/svg" class="w-12 h-12" viewBox="0 0 24 24" fill="none" stroke="#ffffff" stroke-width="2" stroke-linecap="round" stroke-linejoin="arcs"><path d="M9 18l6-6-6-6"/></svg>
     </button>
 
 
-    <div class="carousel relative overflow-hidden mt-32 mb-32">
+    <div class="bg-black text-white mt-32 ">
+        <div class="container mx-auto flex flex-col md:flex-row items-center">
+            <div class="flex flex-col w-full lg:w-1/3 justify-center items-start p-16">
+                <h1 class="text-3xl md:text-5xl p-2 text-yellow-300 tracking-loose">TechFest</h1>
+                <h2 class="text-3xl md:text-5xl leading-relaxed md:leading-snug mb-2">Space : The Timeless Infinity</h2>
+                <p class="text-sm md:text-base text-gray-50 mb-4">
+                    Explore your favourite events and register now to showcase your talent and win exciting prizes.
+                </p>
+                <a href="#" class="bg-transparent hover:bg-yellow-300 text-yellow-300 hover:text-black rounded shadow hover:shadow-lg py-2 px-4 border border-yellow-300 hover:border-transparent">
+                    Explore Now
+                </a>
+            </div>
+            <div class="p-8 mt-12 mb-6 md:mb-0 md:mt-0 ml-0 md:ml-12 lg:w-2/3 justify-center">
+                <div class="h-48 flex flex-wrap content-center">
+                    <div>
+                        <img class="inline-block mt-28  xl:block" src="https://user-images.githubusercontent.com/54521023/116969935-c13d5b00-acd4-11eb-82b1-5ad2ff10fb76.png">
+                    </div>
+                    <div>
+                        <img class="inline-block mt-24 md:mt-0 p-8 md:p-0" src="https://user-images.githubusercontent.com/54521023/116969931-bedb0100-acd4-11eb-99a9-ff5e0ee9f31f.png">
+                    </div>
+                    <div>
+                        <img class="inline-block mt-28  lg:block" src="https://user-images.githubusercontent.com/54521023/116969939-c1d5f180-acd4-11eb-8ad4-9ab9143bdb50.png">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="carousel relative overflow-hidden mt-32 mb-64">
         <div class="flex mb-2 border-b-2">
             <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="w-7 h-7 mr-[7px] text-white bi bi-person-video2" viewBox="0 -1 16 16">
                 <path d="M10 9.05a2.5 2.5 0 1 0 0-5 2.5 2.5 0 0 0 0 5"/>
@@ -238,11 +267,11 @@
             </div>
         </div>
     </div>
-    <button class="prev absolute top-[3510px] left-32 text-black  transform -translate-y-1/2 rounded-lg  opacity-100 hover:opacity-90" @click="prevActorItem">
+    <button class="prev absolute top-[4000px] left-32 text-black  transform -translate-y-1/2 rounded-lg  opacity-100 hover:opacity-90" @click="prevActorItem">
     <svg xmlns="http://www.w3.org/2000/svg" class=" w-12 h-12" viewBox="0 0 24 24" fill="none" stroke="#ffffff" stroke-width="2" stroke-linecap="round" stroke-linejoin="arcs"><path d="M15 18l-6-6 6-6"/></svg>
     </button>
 
-    <button class="next absolute top-[3510px] right-32 text-black transform -translate-y-1/2 rounded-lg  opacity-100 hover:opacity-90" @click="nextActorItem">
+    <button class="next absolute top-[4000px] right-32 text-black transform -translate-y-1/2 rounded-lg  opacity-100 hover:opacity-90" @click="nextActorItem">
     <svg xmlns="http://www.w3.org/2000/svg" class="w-12 h-12" viewBox="0 0 24 24" fill="none" stroke="#ffffff" stroke-width="2" stroke-linecap="round" stroke-linejoin="arcs"><path d="M9 18l6-6-6-6"/></svg>
     </button>
 

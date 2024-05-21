@@ -9,25 +9,28 @@
                 </div>
                 <div class="mt-10">
                     <form @submit.prevent="login">
-
                         <div>
                             <label class="mb-2.5 block font-extrabold" >Email</label>
-                            <input type="email" name="email" v-model="form.email" class="inline-block w-full rounded-full bg-white p-2.5 leading-none text-black placeholder-indigo-900 shadow placeholder:opacity-30" placeholder="examplek@gmail.com" />
+                            <input type="email" name="email" v-model="form.email" class="inline-block w-full rounded-full bg-white p-2.5 leading-none text-black placeholder-indigo-900 shadow placeholder:opacity-30" placeholder="example@gmail.com" />
                         </div>
 
                         <div class="mt-4">
-                            <label class="mb-2.5 block font-extrabold">Password</label>
-                            <input type="password" name="password" v-model="form.password" class="inline-block w-full rounded-full bg-white p-2.5 leading-none text-black placeholder-indigo-900 shadowplaceholder-indigo-900 placeholder:opacity-30" placeholder="********"/>
+                            <label class="mb-2.5 block font-extrabold" >Password</label>
+                            <input type="password" name="password" v-model="form.password" class="inline-block w-full rounded-full bg-white p-2.5 leading-none text-black placeholder-indigo-900 shadow placeholder:opacity-30" placeholder="*********" />
                         </div>
 
-                        <div class="my-10">
-                            <button type="submit" class="block w-full text-center text-black rounded-full bg-green-50 p-5 hover:bg-gray-200">Login</button>
+                        <div class="mt-8">
+                            <button type="submit" class="font-bold hover:bg-black hover:text-white hover:ring hover:ring-white transition duration-300 inline-flex items-center justify-center rounded-full text-base focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 bg-white text-black py-4 w-full">Login</button>
+                        </div>
+
+                        <div class=" flex justify-end">
+                            <p class="flex mr-3 my-7 text-white rounded-lg bg-black">Don't have an account?</p>
+                            <a :href="register" class="bg-white text-black h-10 px-4 py-2 my-5 font-semibold hover:bg-black hover:text-white hover:ring hover:ring-white transition duration-300 inline-flex items-center justify-center rounded-md text-sm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 ">
+                                Sign Up
+                            </a>
                         </div>
 
                     </form>
-                    <div class="my-10">
-                        <a :href="register"><button  class="block w-full text-center text-black rounded-full bg-green-50 p-5 hover:bg-gray-200">Sign Up</button></a>
-                    </div>
                 </div>
             </div>
         </div>
@@ -76,7 +79,7 @@ const login = async () => {
             });
             Toast.fire({
             icon: "error",
-            title: "Geçersiz E-posta veya şifre"
+            title: "Invalid Email or password"
         });
     }
 }

@@ -9,10 +9,10 @@
         <line x1="45.1" y1="30.4" x2="0" y2="30.4" class="stroke-white " style="stroke-width: 2;stroke-miterlimit: 10;"></line>
         </svg>
     </div>
-    <div class="carousel relative overflow-hidden mt-12 ">
 
-        <div class="grid grid-cols-7 gap-4 py-4">
-            <div v-for="(movieDetail) in myMovies" :key="movieDetail.id" class="relative carousel-item flex-shrink-0 flex flex-col items-center just mb-24" style="width:200px;" >
+    <div class="carousel relative overflow-hidden mt-12 ">
+        <div class="grid grid-cols-7 gap-4 py-4 ">
+            <div v-for="(movieDetail) in myMovies" :key="movieDetail.id" class=" relative carousel-item flex-shrink-0 flex flex-col items-center just mb-24" style="width:200px;" >
                 <button @click="deleteFavorites(movieDetail.movie_id)"  class="left-0 top-0 absolute z-10 p-2 backdrop-blur-sm bg-gray-800/30 w-12 h-12 justify-center items-center flex self-end rounded-xl border-gray-400/50 border hover:shadow-xl">
                     <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-yellow-60" viewBox="0 0 20 20" fill="currentColor">
                         <path d="M5 4a2 2 0 012-2h6a2 2 0 012 2v14l-5-2.5L5 18V4z" />
@@ -42,7 +42,6 @@
                         </svg>
                         {{movieDetail?.movie?.rating}} / 10
                     </p>
-
                 </div>
             </div>
         </div>
