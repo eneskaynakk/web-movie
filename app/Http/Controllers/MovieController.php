@@ -17,6 +17,18 @@ class MovieController extends Controller
         return view('pages.homepage', ['movies' => $movies]);
     }
 
+    public function indexToprated()
+    {
+        $top_rated_movies = Movie::all();
+        return view('pages.homepage', ['topRatedMovies' => $topRatedMovies]);
+    }
+
+    public function indexUpcoming()
+    {
+        $upcoming_movies = Movie::all();
+        return view('pages.homepage', ['upcomingMovies' => $upcomingMovies]);
+    }
+
     /**
      * Show the form for creating a new resource.
      */

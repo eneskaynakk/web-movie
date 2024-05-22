@@ -212,7 +212,7 @@
                 <p class="text-sm md:text-base text-gray-50 mb-4">
                     Explore your favourite events and register now to showcase your talent and win exciting prizes.
                 </p>
-                <a href="#" class="bg-transparent hover:bg-yellow-300 text-yellow-300 hover:text-black rounded shadow hover:shadow-lg py-2 px-4 border border-yellow-300 hover:border-transparent">
+                <a href="/" class="bg-transparent hover:bg-yellow-300 text-yellow-300 hover:text-black rounded shadow hover:shadow-lg py-2 px-4 border border-yellow-300 hover:border-transparent">
                     Explore Now
                 </a>
             </div>
@@ -312,7 +312,7 @@
 </template>
 
 <script setup>
-import { ref, reactive, onMounted, onUnmounted} from 'vue';
+import { ref, onMounted, onUnmounted} from 'vue';
 import {getRoute, fetchData} from "@utils/helpers.js";
 import { useAuthStore } from '@stores/authStore'
 
@@ -368,7 +368,7 @@ const prevPopularItem = () => {
     }
 };
 const nextPopularItem = () => {
-    if (currentPopularIndex.value < 13) {
+    if (currentPopularIndex.value < 8) {
         currentPopularIndex.value++;
     } else {
         currentPopularIndex.value = 0;

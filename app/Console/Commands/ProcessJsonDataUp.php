@@ -9,17 +9,17 @@ use Illuminate\Support\Facades\Log;
 
 class ProcessJsonData extends Command
 {
-    protected $signature = 'process:json';
+    protected $signature = 'process:jsonupcoming';
 
     protected $description = 'Process JSON data and store in database';
 
     public function handle()
     {
-        $movies = array();
+        $upcomingMovies = array();
         $client = new Client();
 
         for($i = 1; $i <= 1; $i++) {
-            $response = $client->request('GET', 'https://api.themoviedb.org/3/movie/popular?language=tr-TR&page=' . $i, [
+            $response = $client->request('GET', 'https://api.themoviedb.org/3/movie/upcoming?language=tr-TR&page=' . $i, [
                 'headers' => [
                   'Authorization' => 'Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiI0YzA4NTk1ODEwYzc5NzBhMjIwOGZjODI4M2VhNjkwZSIsInN1YiI6IjY2MjI5YjM5M2Y0ODMzMDE4Njc1N2JkMSIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.QhWNgsi-mdrB97SR61KfFanE8p3jhw3Mz6MADUhflBE',
                   'accept' => 'application/json',
@@ -27,11 +27,11 @@ class ProcessJsonData extends Command
             ]);
             $json = $response->getBody()->getContents();
             $data = json_decode($json, true);
-            $movies = array_merge($movies, $data['results']);
+            $upcomingMovies = array_merge($upcomingMovies, $data['results']);
         }
 
-        foreach($movies as $key => $movie) {
-            $detailResponse = $client->request('GET', 'https://api.themoviedb.org/3/movie/' . $movie['id'] . '?language=tr-TR', [
+        foreach($upcomingMovies as $key => $upcomingMovie) {
+            $detailResponse = $client->request('GET', 'https://api.themoviedb.org/3/movie/' . $upcomingMovie['id'] . '?language=tr-TR', [
                 'headers' => [
                   'Authorization' => 'Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiI0YzA4NTk1ODEwYzc5NzBhMjIwOGZjODI4M2VhNjkwZSIsInN1YiI6IjY2MjI5YjM5M2Y0ODMzMDE4Njc1N2JkMSIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.QhWNgsi-mdrB97SR61KfFanE8p3jhw3Mz6MADUhflBE',
                   'accept' => 'application/json',
@@ -50,11 +50,11 @@ class ProcessJsonData extends Command
             ]);
 
             $IMDBDetailJson = $detailResponse->getBody()->getContents();
-            $movies[$key]['imdb_detail'] = json_decode($IMDBDetailJson, true);
+            $upcomingMovies[$key]['imdb_detail'] = json_decode($IMDBDetailJson, true);
         }
 
-        foreach ($movies as $movie) {
-            $imdbDetail = $movie['imdb_detail'];
+        foreach ($upcomingMovies as $upcomingMovie) {
+            $imdbDetail = $upcomingMovie['imdb_detail'];
 
             if (isset($imdbDetail['imdbID']) && $imdbDetail['imdbRating'] !== 'N/A') {
                 $movieData = [

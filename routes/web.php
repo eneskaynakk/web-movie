@@ -20,6 +20,7 @@ use App\Http\Controllers\MovieDetailController;
 
 Route::get('/', [MovieController::class, 'index'])->name('index');
 
+
 Route::middleware('auth')->group(function () {
     Route::get('/favorites', [FavoriteController::class, 'index'])->name('favorites.index');
     Route::post('/favorites', [FavoriteController::class, 'store'])->name('favorites.store');
