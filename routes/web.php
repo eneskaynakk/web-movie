@@ -6,7 +6,6 @@ use App\Http\Controllers\FavoriteController;
 use App\Http\Controllers\MovieDetailController;
 
 
-
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -19,6 +18,7 @@ use App\Http\Controllers\MovieDetailController;
 */
 
 Route::get('/', [MovieController::class, 'index'])->name('index');
+
 
 
 Route::middleware('auth')->group(function () {

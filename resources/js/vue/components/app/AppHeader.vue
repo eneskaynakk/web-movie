@@ -65,13 +65,11 @@
                         </svg>
                     </button>
                     <div v-if="search" class="absolute z-10 bg-white rounded-lg w-96 mt-2 pr-16">
-                        <div v-for="movie in movies.slice(0,5)" :key="movie.id" class="items-center grid grid-cols-2 hover:underline opacity-100 hover:opacity-80">
-                            <a :href="'movie/' + movie.id">
+                        <div v-for="movie in movies.slice(0,5)" :key="movie.id">
+                            <button @click="getMovieRoute(movie.id)" class="items-center grid grid-cols-2 hover:underline opacity-100 hover:opacity-80">
                                 <img :src="movie.poster" class="w-32 h-36 m-2 rounded-lg">
-                            </a>
-                            <a :href="'movie/' + movie.id">
                                 <p class="text-black text-[15px] mr-6 mt-0 mb-0 font-bold hover:underline">{{ movie.title }}</p>
-                            </a>
+                            </button>
                         </div>
                     </div>
                 </div>
@@ -179,6 +177,10 @@ const logout = () => {
         localStorage.removeItem('is_authenticated')
         window.location.href = getRoute('index')
     })
+}
+
+const getMovieRoute = (movieId) => {
+    window.location.href = getRoute('movies.show', {id: movieId})
 }
 
 onMounted(() => setTimeout(store.getUserService, 200))

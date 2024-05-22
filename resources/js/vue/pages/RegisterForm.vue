@@ -56,6 +56,7 @@
 <script setup>
 import { reactive } from 'vue'
 import {fetchData, getRoute} from "@utils/helpers"
+import Swal from 'sweetalert2';
 
 const imgUrl = new URL('@images/site_logo.png', import.meta.url).href
 const imgUrl2 = new URL('@images/login2.jpg', import.meta.url).href
@@ -65,28 +66,27 @@ const login = getRoute('login')
 const form = reactive({ name: null, email: null, password: null, password_confirmation: null })
 const errors = reactive({})
 
-
 const register = () =>
-    fetchData('api.register', {}, form)
-        .then(() => {
-            console.log('başarılı')
-            location.href = getRoute('login')
-            localStorage.setItem('is_authenticated', true)
-            const Toast = Swal.mixin({
-                toast: true,
-                position: "top-end",
-                showConfirmButton: false,
-                timer: 4000,
-                timerProgressBar: true,
-                didOpen: (toast) => {
-                    toast.onmouseenter = Swal.stopTimer;
-                    toast.onmouseleave = Swal.resumeTimer;
-                }
-                });
-                Toast.fire({
-                icon: "success",
-                title: "Kayıt başarılı"
-            });
-        })
-        .catch(err => console.error(err))
+    fetchData('sanctum.csrf-cookie').then(() => {
+        fetchData('api.register', {}, form)
+            .then(() => {
+                localStorage.setItem('is_authenticated', true)
+                const Toast = Swal.mixin({
+                    toast: true,
+                    position: "top-end",
+                    showConfirmButton: false,
+                    timer: 1000,
+                    timerProgressBar: true,
+                    didOpen: (toast) => {
+                        toast.onmouseenter = Swal.stopTimer;
+                        toast.onmouseleave = Swal.resumeTimer;
+                    }
+                    });
+                    Toast.fire({
+                        icon: "success",
+                        title: "Kayıt başarılı"
+                    }).then(() => window.location.href = getRoute('login'));
+            })
+            .catch(err => console.error(err))
+    });
 </script>

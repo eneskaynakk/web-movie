@@ -21,7 +21,7 @@
         </div>
 
         <div class="carousel-inner grid grid-cols-3 gap-4 py-4 transition-transform ease-in-out duration-500 " :style="{ 'transform': `translateX(-${currentPopularIndex * 200}px)` }">
-            <div v-for="(movieDetail) in movies" :key="movieDetail.id" class="relative carousel-item flex-shrink-0 flex flex-col items-center justify-center" style="width:200px;" >
+            <div v-for="movieDetail in movies.slice(0,30)" :key="movieDetail.id" class="relative carousel-item flex-shrink-0 flex flex-col items-center justify-center" style="width:200px;" >
                 <button @click="addFavorite(movieDetail.id)" v-if="!movieIds.includes(movieDetail.id)" class="left-0 top-0 absolute z-10 p-2 backdrop-blur-sm bg-gray-800/30 w-12 h-12 justify-center items-center flex self-end rounded-xl border-gray-400/50 border hover:shadow-xl">
                         <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-white" viewBox="0 0 20 20" fill="currentColor">
                         <path d="M5 4a2 2 0 012-2h6a2 2 0 012 2v14l-5-2.5L5 18V4z" />
@@ -32,19 +32,19 @@
                         <path d="M5 4a2 2 0 012-2h6a2 2 0 012 2v14l-5-2.5L5 18V4z" />
                     </svg>
                 </button>
-                <a :href="'movie/' + movieDetail.id" @click="addDetail(movieDetail.movie_id)">
+                <button @click="getMovieRoute(movieDetail.id)">
                     <div class="border-2 rounded-xl">
                         <img :src="movieDetail.poster" alt="Carousel Image" class="w-56 h-72 opacity-100 hover:opacity-90 border-2 rounded-lg">
                     </div>
-                </a>
+                </button>
                 <div class="flex flex-col items-center justify-center ">
 
-                    <a :href="'movie/' + movieDetail.id" @click="addDetail(movieDetail.movie_id)" v-if="movieDetail.title.substring()>movieDetail.title.substring(0,21)" class="hover:underline text-gray-200 font-semibold text-base mt-3"> {{movieDetail.title.substring(0,21)}}...</a>
+                    <button @click="getMovieRoute(movieDetail.id)" v-if="movieDetail.title.substring()>movieDetail.title.substring(0,21)" class="hover:underline text-gray-200 font-semibold text-base mt-3"> {{movieDetail.title.substring(0,21)}}...</button>
 
-                    <a :href="'movie/' + movieDetail.id" @click="addDetail(movieDetail.movie_id)" v-else class="hover:underline text-white font-semibold text-base mt-3"> {{movieDetail.title}}</a>
+                    <button @click="getMovieRoute(movieDetail.id)" v-else class="hover:underline text-white font-semibold text-base mt-3"> {{movieDetail.title}}</button>
 
-                    <p class="flex text-black text-sm bg-white px-2 py-1 font-bold rounded-full mt-3">
-                        <svg class="w-5 h-5 mr-[3px] text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 1 24 24">
+                    <p class="flex text-black text-base bg-white px-2 py-1 font-bold rounded-full mt-3">
+                        <svg class="w-6 h-6 mr-[3px] text-yellow-60 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 1 24 24">
                             <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 10h16M8 14h8m-4-7V4M7 7V4m10 3V4M5 20h14a1 1 0 0 0 1-1V7a1 1 0 0 0-1-1H5a1 1 0 0 0-1 1v12a1 1 0 0 0 1 1Z"/>
                         </svg>
 
@@ -61,70 +61,83 @@
                 </div>
             </div>
         </div>
-    </div>
-    <button class="prev absolute top-[1050px] left-32 text-black  transform -translate-y-1/2 rounded-lg  opacity-100 hover:opacity-90" @click="prevPopularItem">
-        <svg xmlns="http://www.w3.org/2000/svg" class=" w-12 h-12" viewBox="0 0 24 24" fill="none" stroke="#ffffff" stroke-width="2" stroke-linecap="round" stroke-linejoin="arcs"><path d="M15 18l-6-6 6-6"/></svg>
-    </button>
+        <button class="prev absolute top-1/2 left-2 transform -translate-y-1/2 rounded-lg bg-white hover:bg-yellow-60" @click="prevPopularItem">
+            <svg xmlns="http://www.w3.org/2000/svg" class="w-10 h-12" viewBox="0 0 24 24" fill="none" stroke="#0c0b00" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M15 18l-6-6 6-6"/>
+            </svg>
+        </button>
 
-    <button class="next absolute top-[1050px] right-32 text-black transform -translate-y-1/2 rounded-lg  opacity-100 hover:opacity-90" @click="nextPopularItem">
-        <svg xmlns="http://www.w3.org/2000/svg" class="w-12 h-12" viewBox="0 0 24 24" fill="none" stroke="#ffffff" stroke-width="2" stroke-linecap="round" stroke-linejoin="arcs"><path d="M9 18l6-6-6-6"/></svg>
-    </button>
+        <button class="next absolute top-1/2 right-2 transform -translate-y-1/2 rounded-lg bg-white hover:bg-yellow-60" @click="nextPopularItem">
+            <svg xmlns="http://www.w3.org/2000/svg" class="w-10 h-12" viewBox="0 0 24 24" fill="none" stroke="#0c0b00" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M9 18l6-6-6-6"/>
+            </svg>
+        </button>
+    </div>
+
 
 
     <div class="carousel relative overflow-hidden mt-32">
-
         <div class="flex mb-2 border-b-2">
-            <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="w-7 h-7 mr-[3px] text-white bi bi-award-fill" viewBox="0 0 16 16">
-                <path d="m8 0 1.669.864 1.858.282.842 1.68 1.337 1.32L13.4 6l.306 1.854-1.337 1.32-.842 1.68-1.858.282L8 12l-1.669-.864-1.858-.282-.842-1.68-1.337-1.32L2.6 6l-.306-1.854 1.337-1.32.842-1.68L6.331.864z"/>
-                <path d="M4 11.794V16l4-1 4 1v-4.206l-2.018.306L8 13.126 6.018 12.1z"/>
+            <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="h-7 w-7 mr-[3px] text-white bi bi-hand-thumbs-up-fill" viewBox="0 0 16 16">
+                <path d="M6.956 1.745C7.021.81 7.908.087 8.864.325l.261.066c.463.116.874.456 1.012.965.22.816.533 2.511.062 4.51a10 10 0 0 1 .443-.051c.713-.065 1.669-.072 2.516.21.518.173.994.681 1.2 1.273.184.532.16 1.162-.234 1.733q.086.18.138.363c.077.27.113.567.113.856s-.036.586-.113.856c-.039.135-.09.273-.16.404.169.387.107.819-.003 1.148a3.2 3.2 0 0 1-.488.901c.054.152.076.312.076.465 0 .305-.089.625-.253.912C13.1 15.522 12.437 16 11.5 16H8c-.605 0-1.07-.081-1.466-.218a4.8 4.8 0 0 1-.97-.484l-.048-.03c-.504-.307-.999-.609-2.068-.722C2.682 14.464 2 13.846 2 13V9c0-.85.685-1.432 1.357-1.615.849-.232 1.574-.787 2.132-1.41.56-.627.914-1.28 1.039-1.639.199-.575.356-1.539.428-2.59z"/>
             </svg>
-            <p class="text-white font-bold text-2xl">Top Rated Movies</p>
+            <p class="text-white text-2xl font-bold">Top Rated Movies</p>
         </div>
 
-        <div class="carousel-inner grid grid-cols-3 gap-4 transition-transform ease-in-out duration-500 " :style="{ 'transform': `translateX(-${currentTopIndex * 200}px)` }">
-            <div v-for="(movieDetail, index) in movies.slice(0,19)" :key="index" class="carousel-item flex-shrink-0 flex flex-col items-center justify-center py-4" style="width:200px;" >
-                <a :href="movie" class="relative">
-                    <a :href="watch" class="left-0 top-0 absolute z-10 p-2 backdrop-blur-sm bg-gray-800/30 w-12 h-12 justify-center items-center flex self-end rounded-xl border-gray-400/50 border hover:shadow-xl">
+        <div class="carousel-inner grid grid-cols-3 gap-4 py-4 transition-transform ease-in-out duration-500 " :style="{ 'transform': `translateX(-${currentTopIndex * 200}px)` }">
+            <div v-for="top_rated_movieDetail in top_rated_movies.slice(0,30)" :key="top_rated_movieDetail.id" class="relative carousel-item flex-shrink-0 flex flex-col items-center justify-center" style="width:200px;" >
+                <button @click="addFavorite(top_rated_movieDetail.id)" v-if="!movieIds.includes(top_rated_movieDetail.id)" class="left-0 top-0 absolute z-10 p-2 backdrop-blur-sm bg-gray-800/30 w-12 h-12 justify-center items-center flex self-end rounded-xl border-gray-400/50 border hover:shadow-xl">
                         <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-white" viewBox="0 0 20 20" fill="currentColor">
                         <path d="M5 4a2 2 0 012-2h6a2 2 0 012 2v14l-5-2.5L5 18V4z" />
                         </svg>
-                    </a>
+                </button>
+                <button @click="deleteFavorites(top_rated_movieDetail.id)" v-else class="left-0 top-0 absolute z-10 p-2 backdrop-blur-sm bg-gray-800/30 w-12 h-12 justify-center items-center flex self-end rounded-xl border-gray-400/50 border hover:shadow-xl">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-yellow-60" viewBox="0 0 20 20" fill="currentColor">
+                        <path d="M5 4a2 2 0 012-2h6a2 2 0 012 2v14l-5-2.5L5 18V4z" />
+                    </svg>
+                </button>
+                <button @click="getMovieRoute(top_rated_movieDetail.id)">
                     <div class="border-2 rounded-xl">
-                        <img :src="movieDetail.poster" alt="Carousel Image" class="w-56 h-72 opacity-100 hover:opacity-90 border-2 rounded-lg">
+                        <img :src="top_rated_movieDetail.poster" alt="Carousel Image" class="w-56 h-72 opacity-100 hover:opacity-90 border-2 rounded-lg">
                     </div>
-                </a>
+                </button>
                 <div class="flex flex-col items-center justify-center ">
 
-                    <a :href="movie" v-if="movieDetail.title.substring()>movieDetail.title.substring(0,21)" class="hover:underline text-gray-200 font-semibold text-base mt-3"> {{movieDetail.title.substring(0,21)}}...</a>
+                    <button @click="getMovieRoute(top_rated_movieDetail.id)" v-if="top_rated_movieDetail.title.substring()>top_rated_movieDetail.title.substring(0,21)" class="hover:underline text-gray-200 font-semibold text-base mt-3"> {{top_rated_movieDetail.title.substring(0,21)}}...</button>
 
-                    <a :href="movie" v-else class="hover:underline text-white font-semibold text-base mt-3"> {{movieDetail.title}}</a>
+                    <button @click="getMovieRoute(top_rated_movieDetail.id)" v-else class="hover:underline text-white font-semibold text-base mt-3"> {{top_rated_movieDetail.title}}</button>
 
-                    <p class="flex text-black text-sm bg-white px-2 py-1 font-bold rounded-full mt-3">
-                        <svg class="w-5 h-5 mr-[3px] text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 1 24 24">
+                    <p class="flex text-black text-base bg-white px-2 py-1 font-bold rounded-full mt-3">
+                        <svg class="w-6 h-6 mr-[3px] text-yellow-60 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 1 24 24">
                             <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 10h16M8 14h8m-4-7V4M7 7V4m10 3V4M5 20h14a1 1 0 0 0 1-1V7a1 1 0 0 0-1-1H5a1 1 0 0 0-1 1v12a1 1 0 0 0 1 1Z"/>
                         </svg>
 
-                        {{movieDetail.year}}
+                        {{top_rated_movieDetail.year}}
                     </p>
 
                     <p class="flex rounded-full bg-white text-black font-bold border-2 p-1 mt-4 border-white">
                         <svg class="w-5 h-5 text-yellow-60 mr-[5px] dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 -1 24 24">
-                        <path d="M13.849 4.22c-.684-1.626-3.014-1.626-3.698 0L8.397 8.387l-4.552.361c-1.775.14-2.495 2.331-1.142 3.477l3.468 2.937-1.06 4.392c-.413 1.713 1.472 3.067 2.992 2.149L12 19.35l3.897 2.354c1.52.918 3.405-.436 2.992-2.15l-1.06-4.39 3.468-2.938c1.353-1.146.633-3.336-1.142-3.477l-4.552-.36-1.754-4.17Z"/>
+                            <path d="M13.849 4.22c-.684-1.626-3.014-1.626-3.698 0L8.397 8.387l-4.552.361c-1.775.14-2.495 2.331-1.142 3.477l3.468 2.937-1.06 4.392c-.413 1.713 1.472 3.067 2.992 2.149L12 19.35l3.897 2.354c1.52.918 3.405-.436 2.992-2.15l-1.06-4.39 3.468-2.938c1.353-1.146.633-3.336-1.142-3.477l-4.552-.36-1.754-4.17Z"/>
                         </svg>
-                        {{movieDetail.rating}} / 10
+                        {{top_rated_movieDetail.rating}} / 10
                     </p>
 
                 </div>
             </div>
         </div>
-    </div>
-    <button class="prev absolute top-[1670px] left-32 text-black  transform -translate-y-1/2 rounded-lg  opacity-100 hover:opacity-90" @click="prevTopItem">
-    <svg xmlns="http://www.w3.org/2000/svg" class=" w-12 h-12" viewBox="0 0 24 24" fill="none" stroke="#ffffff" stroke-width="2" stroke-linecap="round" stroke-linejoin="arcs"><path d="M15 18l-6-6 6-6"/></svg>
-    </button>
+        <button class="prev absolute top-1/2 left-2 transform -translate-y-1/2 rounded-lg bg-white hover:bg-yellow-60" @click="prevTopItem">
+            <svg xmlns="http://www.w3.org/2000/svg" class="w-10 h-12" viewBox="0 0 24 24" fill="none" stroke="#0c0b00" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M15 18l-6-6 6-6"/>
+            </svg>
+        </button>
 
-    <button class="next absolute top-[1670px] right-32 text-black transform -translate-y-1/2 rounded-lg  opacity-100 hover:opacity-90" @click="nextTopItem">
-    <svg xmlns="http://www.w3.org/2000/svg" class="w-12 h-12" viewBox="0 0 24 24" fill="none" stroke="#ffffff" stroke-width="2" stroke-linecap="round" stroke-linejoin="arcs"><path d="M9 18l6-6-6-6"/></svg>
-    </button>
+        <button class="next absolute top-1/2 right-2 transform -translate-y-1/2 rounded-lg bg-white hover:bg-yellow-60" @click="nextTopItem">
+            <svg xmlns="http://www.w3.org/2000/svg" class="w-10 h-12" viewBox="0 0 24 24" fill="none" stroke="#0c0b00" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M9 18l6-6-6-6"/>
+            </svg>
+        </button>
+    </div>
+
 
 
     <div class="w-full bg-black border-4 border-white rounded-3xl md:py-8 md:px-8 px-5 py-4 mt-24">
@@ -150,58 +163,67 @@
 
 
     <div class="carousel relative overflow-hidden mt-32">
-
-        <div class="flex mb-6 border-b-2">
-            <svg xmlns="http://www.w3.org/2000/svg"  fill="currentColor" class="w-7 h-7 mr-[3px] text-white bi bi-hourglass-split" viewBox="0 -1 16 16">
+        <div class="flex mb-2 border-b-2">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class=" w-7 h-7 mr-[3px] text-white bi bi-hourglass-split" viewBox="0 0 16 16">
                 <path d="M2.5 15a.5.5 0 1 1 0-1h1v-1a4.5 4.5 0 0 1 2.557-4.06c.29-.139.443-.377.443-.59v-.7c0-.213-.154-.451-.443-.59A4.5 4.5 0 0 1 3.5 3V2h-1a.5.5 0 0 1 0-1h11a.5.5 0 0 1 0 1h-1v1a4.5 4.5 0 0 1-2.557 4.06c-.29.139-.443.377-.443.59v.7c0 .213.154.451.443.59A4.5 4.5 0 0 1 12.5 13v1h1a.5.5 0 0 1 0 1zm2-13v1c0 .537.12 1.045.337 1.5h6.326c.216-.455.337-.963.337-1.5V2zm3 6.35c0 .701-.478 1.236-1.011 1.492A3.5 3.5 0 0 0 4.5 13s.866-1.299 3-1.48zm1 0v3.17c2.134.181 3 1.48 3 1.48a3.5 3.5 0 0 0-1.989-3.158C8.978 9.586 8.5 9.052 8.5 8.351z"/>
             </svg>
-            <p class="text-white font-bold text-2xl">Upcoming Movies</p>
+            <p class="text-white text-2xl font-bold">Upcoming Movies</p>
         </div>
 
-        <div class="carousel-inner grid grid-cols-3 gap-4 transition-transform ease-in-out duration-500 " :style="{ 'transform': `translateX(-${currentUpcomingIndex * 200}px)` }">
-            <div v-for="(movieDetail, index) in movies.slice(0,19)" :key="index" class="carousel-item flex-shrink-0 flex flex-col items-center justify-center py-4" style="width:200px;" >
-                <a :href="movie" class="relative">
-                    <a :href="watch" class="left-0 top-0 absolute z-10 p-2 backdrop-blur-sm bg-gray-800/30 w-12 h-12 justify-center items-center flex self-end rounded-xl border-gray-400/50 border hover:shadow-xl">
+        <div class="carousel-inner grid grid-cols-3 gap-4 py-4 transition-transform ease-in-out duration-500 " :style="{ 'transform': `translateX(-${currentTopIndex * 200}px)` }">
+            <div v-for="upcoming_movieDetail in upcoming_movies.slice(0,30)" :key="upcoming_movieDetail.id" class="relative carousel-item flex-shrink-0 flex flex-col items-center justify-center" style="width:200px;" >
+                <button @click="addFavorite(upcoming_movieDetail.id)" v-if="!movieIds.includes(upcoming_movieDetail.id)" class="left-0 top-0 absolute z-10 p-2 backdrop-blur-sm bg-gray-800/30 w-12 h-12 justify-center items-center flex self-end rounded-xl border-gray-400/50 border hover:shadow-xl">
                         <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-white" viewBox="0 0 20 20" fill="currentColor">
                         <path d="M5 4a2 2 0 012-2h6a2 2 0 012 2v14l-5-2.5L5 18V4z" />
                         </svg>
-                    </a>
+                </button>
+                <button @click="deleteFavorites(upcoming_movieDetail.id)" v-else class="left-0 top-0 absolute z-10 p-2 backdrop-blur-sm bg-gray-800/30 w-12 h-12 justify-center items-center flex self-end rounded-xl border-gray-400/50 border hover:shadow-xl">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-yellow-60" viewBox="0 0 20 20" fill="currentColor">
+                        <path d="M5 4a2 2 0 012-2h6a2 2 0 012 2v14l-5-2.5L5 18V4z" />
+                    </svg>
+                </button>
+                <button @click="getMovieRoute(upcoming_movieDetail.id)">
                     <div class="border-2 rounded-xl">
-                        <img :src="movieDetail.poster" alt="Carousel Image" class="w-56 h-72 opacity-100 hover:opacity-90 border-2 rounded-lg">
+                        <img :src="upcoming_movieDetail.poster" alt="Carousel Image" class="w-56 h-72 opacity-100 hover:opacity-90 border-2 rounded-lg">
                     </div>
-                </a>
+                </button>
                 <div class="flex flex-col items-center justify-center ">
 
-                    <a :href="movie" v-if="movieDetail.title.substring()>movieDetail.title.substring(0,21)" class="hover:underline text-gray-200 font-semibold text-base mt-3"> {{movieDetail.title.substring(0,21)}}...</a>
+                    <button @click="getMovieRoute(upcoming_movieDetail.id)" v-if="upcoming_movieDetail.title.substring()>upcoming_movieDetail.title.substring(0,21)" class="hover:underline text-gray-200 font-semibold text-base mt-3"> {{upcoming_movieDetail.title.substring(0,21)}}...</button>
 
-                    <a :href="movie" v-else class="hover:underline text-white font-semibold text-base mt-3"> {{movieDetail.title}}</a>
+                    <button @click="getMovieRoute(upcoming_movieDetail.id)" v-else class="hover:underline text-white font-semibold text-base mt-3"> {{upcoming_movieDetail.title}}</button>
 
-                    <p class="flex text-black text-sm bg-white px-2 py-1 font-bold rounded-full mt-3">
-                        <svg class="w-5 h-5 mr-[3px] text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 1 24 24">
+                    <p class="flex text-black text-base bg-white px-2 py-1 font-bold rounded-full mt-3">
+                        <svg class="w-6 h-6 mr-[3px] text-yellow-60 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 1 24 24">
                             <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 10h16M8 14h8m-4-7V4M7 7V4m10 3V4M5 20h14a1 1 0 0 0 1-1V7a1 1 0 0 0-1-1H5a1 1 0 0 0-1 1v12a1 1 0 0 0 1 1Z"/>
                         </svg>
 
-                        {{movieDetail.year}}
+                        {{upcoming_movieDetail.year}}
                     </p>
 
                     <p class="flex rounded-full bg-white text-black font-bold border-2 p-1 mt-4 border-white">
                         <svg class="w-5 h-5 text-yellow-60 mr-[5px] dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 -1 24 24">
-                        <path d="M13.849 4.22c-.684-1.626-3.014-1.626-3.698 0L8.397 8.387l-4.552.361c-1.775.14-2.495 2.331-1.142 3.477l3.468 2.937-1.06 4.392c-.413 1.713 1.472 3.067 2.992 2.149L12 19.35l3.897 2.354c1.52.918 3.405-.436 2.992-2.15l-1.06-4.39 3.468-2.938c1.353-1.146.633-3.336-1.142-3.477l-4.552-.36-1.754-4.17Z"/>
+                            <path d="M13.849 4.22c-.684-1.626-3.014-1.626-3.698 0L8.397 8.387l-4.552.361c-1.775.14-2.495 2.331-1.142 3.477l3.468 2.937-1.06 4.392c-.413 1.713 1.472 3.067 2.992 2.149L12 19.35l3.897 2.354c1.52.918 3.405-.436 2.992-2.15l-1.06-4.39 3.468-2.938c1.353-1.146.633-3.336-1.142-3.477l-4.552-.36-1.754-4.17Z"/>
                         </svg>
-                        {{movieDetail.rating}} / 10
+                        {{upcoming_movieDetail.rating}} / 10
                     </p>
 
                 </div>
             </div>
         </div>
-    </div>
-    <button class="prev absolute top-[2860px] left-32 text-black  transform -translate-y-1/2 rounded-lg  opacity-100 hover:opacity-90" @click="prevUpcomingItem">
-    <svg xmlns="http://www.w3.org/2000/svg" class=" w-12 h-12" viewBox="0 0 24 24" fill="none" stroke="#ffffff" stroke-width="2" stroke-linecap="round" stroke-linejoin="arcs"><path d="M15 18l-6-6 6-6"/></svg>
-    </button>
+        <button class="prev absolute top-1/2 left-2 transform -translate-y-1/2 rounded-lg bg-white hover:bg-yellow-60" @click="prevTopItem">
+            <svg xmlns="http://www.w3.org/2000/svg" class="w-10 h-12" viewBox="0 0 24 24" fill="none" stroke="#0c0b00" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M15 18l-6-6 6-6"/>
+            </svg>
+        </button>
 
-    <button class="next absolute top-[2860px] right-32 text-black transform -translate-y-1/2 rounded-lg  opacity-100 hover:opacity-90" @click="nextUpcomingItem">
-    <svg xmlns="http://www.w3.org/2000/svg" class="w-12 h-12" viewBox="0 0 24 24" fill="none" stroke="#ffffff" stroke-width="2" stroke-linecap="round" stroke-linejoin="arcs"><path d="M9 18l6-6-6-6"/></svg>
-    </button>
+        <button class="next absolute top-1/2 right-2 transform -translate-y-1/2 rounded-lg bg-white hover:bg-yellow-60" @click="nextTopItem">
+            <svg xmlns="http://www.w3.org/2000/svg" class="w-10 h-12" viewBox="0 0 24 24" fill="none" stroke="#0c0b00" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M9 18l6-6-6-6"/>
+            </svg>
+        </button>
+    </div>
+
 
 
     <div class="bg-black text-white mt-32 ">
@@ -239,41 +261,48 @@
                 <path d="M10 9.05a2.5 2.5 0 1 0 0-5 2.5 2.5 0 0 0 0 5"/>
                 <path d="M2 1a2 2 0 0 0-2 2v9a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V3a2 2 0 0 0-2-2zM1 3a1 1 0 0 1 1-1h2v2H1zm4 10V2h9a1 1 0 0 1 1 1v9c0 .285-.12.543-.31.725C14.15 11.494 12.822 10 10 10c-3.037 0-4.345 1.73-4.798 3zm-4-2h3v2H2a1 1 0 0 1-1-1zm3-1H1V8h3zm0-3H1V5h3z"/>
             </svg>
-            <p class="text-white text-2xl font-bold">Popular Aktors</p>
+            <p class="text-white text-2xl font-bold">Popular Artists</p>
         </div>
 
-        <div class="carousel-inner grid grid-cols-3 gap-4 transition-transform ease-in-out duration-500 " :style="{ 'transform': `translateX(-${currentActorIndex * 200}px)` }">
-            <div v-for="(movieDetail, index) in movies.slice(0,19)" :key="index" class="carousel-item flex-shrink-0 flex flex-col items-center justify-center py-4" style="width:200px;" >
+        <div class="carousel-inner grid grid-cols-3 gap-4 transition-transform ease-in-out duration-500" :style="{ 'transform': `translateX(-${currentActorIndex * 200}px)` }">
+            <div v-for="artist in artists.slice(0,30)" class="carousel-item flex-shrink-0 flex flex-col items-center justify-center py-4">
                 <div class="relative">
-                    <div >
-                        <img :src="movieDetail.poster" alt="Carousel Image" class="w-48 h-48 border-4 rounded-full">
+                    <div>
+                        <img :src="artist.poster" alt="Carousel Image" class="w-56 h-72 border-4 rounded-full">
                     </div>
                 </div>
-                <div class="flex flex-col items-center justify-center ">
-
-                    <div v-if="movieDetail.title.substring()>movieDetail.title.substring(0,21)" class=" text-gray-200 font-semibold text-base mt-3"> {{movieDetail.title.substring(0,21)}}...</div>
-
-                    <div v-else class="text-white font-semibold text-base mt-3"> {{movieDetail.title}}</div>
-
-                    <p class="flex text-black text-sm bg-white px-2 py-1 font-bold rounded-full mt-3">
-                        <svg class="w-5 h-5 mr-[3px] text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 1 24 24">
-                            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 10h16M8 14h8m-4-7V4M7 7V4m10 3V4M5 20h14a1 1 0 0 0 1-1V7a1 1 0 0 0-1-1H5a1 1 0 0 0-1 1v12a1 1 0 0 0 1 1Z"/>
+                <div class="flex flex-col items-center justify-center">
+                    <div v-if="artist.name.length > 21" class="text-gray-200 font-semibold text-base mt-3">{{ artist.name.substring(0, 21) }}...</div>
+                    <div v-else class="text-white font-semibold text-base mt-3">{{ artist.name }}</div>
+                    <p class="flex text-black text-base bg-white px-2 py-1 font-bold rounded-full mt-4">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="w-5 h-5  text-yellow-60 bi bi-person-arms-up" viewBox="0 0 16 16">
+                            <path d="M8 3a1.5 1.5 0 1 0 0-3 1.5 1.5 0 0 0 0 3"/>
+                            <path d="m5.93 6.704-.846 8.451a.768.768 0 0 0 1.523.203l.81-4.865a.59.59 0 0 1 1.165 0l.81 4.865a.768.768 0 0 0 1.523-.203l-.845-8.451A1.5 1.5 0 0 1 10.5 5.5L13 2.284a.796.796 0 0 0-1.239-.998L9.634 3.84a.7.7 0 0 1-.33.235c-.23.074-.665.176-1.304.176-.64 0-1.074-.102-1.305-.176a.7.7 0 0 1-.329-.235L4.239 1.286a.796.796 0 0 0-1.24.998l2.5 3.216c.317.316.475.758.43 1.204Z"/>
                         </svg>
-
-                        {{movieDetail.year}}
+                        {{ artist.sector }}
                     </p>
-
+                    <p class="flex text-black text-base bg-white px-2 py-1 font-bold rounded-full mt-4">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="w-5 h-5 mr-[2px] text-yellow-60 bi bi-hand-thumbs-up-fill" viewBox="0 0 16 16">
+                            <path d="M6.956 1.745C7.021.81 7.908.087 8.864.325l.261.066c.463.116.874.456 1.012.965.22.816.533 2.511.062 4.51a10 10 0 0 1 .443-.051c.713-.065 1.669-.072 2.516.21.518.173.994.681 1.2 1.273.184.532.16 1.162-.234 1.733q.086.18.138.363c.077.27.113.567.113.856s-.036.586-.113.856c-.039.135-.09.273-.16.404.169.387.107.819-.003 1.148a3.2 3.2 0 0 1-.488.901c.054.152.076.312.076.465 0 .305-.089.625-.253.912C13.1 15.522 12.437 16 11.5 16H8c-.605 0-1.07-.081-1.466-.218a4.8 4.8 0 0 1-.97-.484l-.048-.03c-.504-.307-.999-.609-2.068-.722C2.682 14.464 2 13.846 2 13V9c0-.85.685-1.432 1.357-1.615.849-.232 1.574-.787 2.132-1.41.56-.627.914-1.28 1.039-1.639.199-.575.356-1.539.428-2.59z"/>
+                        </svg>
+                        {{ artist.popularity }}
+                    </p>
                 </div>
             </div>
         </div>
-    </div>
-    <button class="prev absolute top-[4000px] left-32 text-black  transform -translate-y-1/2 rounded-lg  opacity-100 hover:opacity-90" @click="prevActorItem">
-    <svg xmlns="http://www.w3.org/2000/svg" class=" w-12 h-12" viewBox="0 0 24 24" fill="none" stroke="#ffffff" stroke-width="2" stroke-linecap="round" stroke-linejoin="arcs"><path d="M15 18l-6-6 6-6"/></svg>
-    </button>
 
-    <button class="next absolute top-[4000px] right-32 text-black transform -translate-y-1/2 rounded-lg  opacity-100 hover:opacity-90" @click="nextActorItem">
-    <svg xmlns="http://www.w3.org/2000/svg" class="w-12 h-12" viewBox="0 0 24 24" fill="none" stroke="#ffffff" stroke-width="2" stroke-linecap="round" stroke-linejoin="arcs"><path d="M9 18l6-6-6-6"/></svg>
-    </button>
+        <button class="prev absolute top-1/2 left-2 transform -translate-y-1/2 rounded-lg bg-white hover:bg-yellow-60" @click="prevActorItem">
+            <svg xmlns="http://www.w3.org/2000/svg" class="w-10 h-12" viewBox="0 0 24 24" fill="none" stroke="#0c0b00" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M15 18l-6-6 6-6"/>
+            </svg>
+        </button>
+
+        <button class="next absolute top-1/2 right-2 transform -translate-y-1/2 rounded-lg bg-white hover:bg-yellow-60" @click="nextActorItem">
+            <svg xmlns="http://www.w3.org/2000/svg" class="w-10 h-12" viewBox="0 0 24 24" fill="none" stroke="#0c0b00" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M9 18l6-6-6-6"/>
+            </svg>
+        </button>
+    </div>
 
 
     <div class="container flex flex-col mx-auto bg-black" id="support">
@@ -318,9 +347,12 @@ import { useAuthStore } from '@stores/authStore'
 
 const movie = getRoute('movie')
 const watch = getRoute('watch')
+const getMovieRoute = (movieId) => {
+    window.location.href = getRoute('movies.show', {id: movieId})
+}
 
 //Retrieving data from database
-const { movies } = defineProps(['movies'])
+const { movies, artists, top_rated_movies,upcoming_movies } = defineProps(['movies', 'artists', 'top_rated_movies','upcoming_movies'])
 //
 
 //Big movie image slider
@@ -387,7 +419,7 @@ const nextTopItem = () => {
     if (currentTopIndex.value < 13) {
         currentTopIndex.value++;
     } else {
-        currentIndex.value = 0;
+        currentTopIndex.value = 0;
     }
 };
 

@@ -55,32 +55,34 @@ const form = reactive({ email: null, password: null })
 
 const register = getRoute('register')
 
-const login = async () => {
-    try {
-        await fetchData('api.login', form)
-        localStorage.setItem('is_authenticated', true)
-        window.location.href = getRoute('index')
-    }
-    catch(err) {
-            console.error(err)
-            const Toast = Swal.mixin({
-            toast: true,
-            position: "top-end",
-            showConfirmButton: false,
-            timer: 3000,
-            timerProgressBar: true,
-            customClass: {
-                popup: 'swal2-my-toast',
-            },
-            didOpen: (toast) => {
-                toast.onmouseenter = Swal.stopTimer;
-                toast.onmouseleave = Swal.resumeTimer;
-            }
+const login = () => {
+    fetchData('sanctum.csrf-cookie').then(async () => {
+        try {
+            await fetchData('api.login', form)
+            localStorage.setItem('is_authenticated', true)
+            setTimeout(() => window.location.href = getRoute('index'), 200)
+        }
+        catch(err) {
+                console.error(err)
+                const Toast = Swal.mixin({
+                toast: true,
+                position: "top-end",
+                showConfirmButton: false,
+                timer: 3000,
+                timerProgressBar: true,
+                customClass: {
+                    popup: 'swal2-my-toast',
+                },
+                didOpen: (toast) => {
+                    toast.onmouseenter = Swal.stopTimer;
+                    toast.onmouseleave = Swal.resumeTimer;
+                }
+                });
+                Toast.fire({
+                icon: "error",
+                title: "Invalid Email or password"
             });
-            Toast.fire({
-            icon: "error",
-            title: "Invalid Email or password"
-        });
-    }
+        }
+    });
 }
 </script>

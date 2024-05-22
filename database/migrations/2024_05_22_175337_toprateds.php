@@ -11,7 +11,7 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('top_rated_movies', function (Blueprint $table) {
+        Schema::create('toprateds', function (Blueprint $table) {
             $table->id();
             $table->string('imdbID');
             $table->string('title');
@@ -38,6 +38,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('top_rated_movies');
+        Schema::dropIfExists('toprateds');
     }
 };

@@ -4,22 +4,22 @@ namespace App\Console\Commands;
 
 use Illuminate\Console\Command;
 use GuzzleHttp\Client;
-use App\Models\Movie;
+use App\Models\Upcoming;
 use Illuminate\Support\Facades\Log;
 
-class ProcessJsonData extends Command
+class ProcessJsonUpcomingMovie extends Command
 {
-    protected $signature = 'process:jsontoprated';
+    protected $signature = 'process:jsonUpcomingMovies';
 
     protected $description = 'Process JSON data and store in database';
 
     public function handle()
     {
-        $topRatedMovies = array();
+        $upcoming_movies = array();
         $client = new Client();
 
         for($i = 1; $i <= 1; $i++) {
-            $response = $client->request('GET', 'https://api.themoviedb.org/3/movie/top_rated?language=tr-TR&page=' . $i, [
+            $response = $client->request('GET', 'https://api.themoviedb.org/3/movie/upcoming?language=tr-TR&page=' . $i, [
                 'headers' => [
                   'Authorization' => 'Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiI0YzA4NTk1ODEwYzc5NzBhMjIwOGZjODI4M2VhNjkwZSIsInN1YiI6IjY2MjI5YjM5M2Y0ODMzMDE4Njc1N2JkMSIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.QhWNgsi-mdrB97SR61KfFanE8p3jhw3Mz6MADUhflBE',
                   'accept' => 'application/json',
@@ -27,11 +27,11 @@ class ProcessJsonData extends Command
             ]);
             $json = $response->getBody()->getContents();
             $data = json_decode($json, true);
-            $topRatedMovies = array_merge($topRatedMovies, $data['results']);
+            $upcoming_movies = array_merge($upcoming_movies, $data['results']);
         }
 
-        foreach($topRatedMovies as $key => $topRatedMovie) {
-            $detailResponse = $client->request('GET', 'https://api.themoviedb.org/3/movie/' . $topRatedMovie['id'] . '?language=tr-TR', [
+        foreach($upcoming_movies as $key => $upcoming_movie) {
+            $detailResponse = $client->request('GET', 'https://api.themoviedb.org/3/movie/' . $upcoming_movie['id'] . '?language=tr-TR', [
                 'headers' => [
                   'Authorization' => 'Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiI0YzA4NTk1ODEwYzc5NzBhMjIwOGZjODI4M2VhNjkwZSIsInN1YiI6IjY2MjI5YjM5M2Y0ODMzMDE4Njc1N2JkMSIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.QhWNgsi-mdrB97SR61KfFanE8p3jhw3Mz6MADUhflBE',
                   'accept' => 'application/json',
@@ -50,11 +50,11 @@ class ProcessJsonData extends Command
             ]);
 
             $IMDBDetailJson = $detailResponse->getBody()->getContents();
-            $topRatedMovies[$key]['imdb_detail'] = json_decode($IMDBDetailJson, true);
+            $upcoming_movies[$key]['imdb_detail'] = json_decode($IMDBDetailJson, true);
         }
 
-        foreach ($topRatedMovies as $topRatedMovie) {
-            $imdbDetail = $topRatedMovie['imdb_detail'];
+        foreach ($upcoming_movies as $upcoming_movie) {
+            $imdbDetail = $upcoming_movie['imdb_detail'];
 
             if (isset($imdbDetail['imdbID']) && $imdbDetail['imdbRating'] !== 'N/A') {
                 $movieData = [
@@ -76,7 +76,7 @@ class ProcessJsonData extends Command
                     'imdbVote' => $imdbDetail['imdbVotes']
                 ];
 
-                Movie::create($movieData);
+                Upcoming::create($movieData);
             }
 
         }
