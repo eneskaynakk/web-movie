@@ -183,5 +183,5 @@ const getMovieRoute = (movieId) => {
     window.location.href = getRoute('movies.show', {id: movieId})
 }
 
-onMounted(() => setTimeout(store.getUserService, 200))
+onMounted(() => setTimeout(store.getUserService, 500))
 </script>

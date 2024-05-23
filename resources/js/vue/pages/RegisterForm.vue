@@ -59,7 +59,7 @@ import {fetchData, getRoute} from "@utils/helpers"
 import Swal from 'sweetalert2';
 
 const imgUrl = new URL('@images/site_logo.png', import.meta.url).href
-const imgUrl2 = new URL('@images/login2.jpg', import.meta.url).href
+const imgUrl2 = new URL('@images/login_2.jpg', import.meta.url).href
 
 const login = getRoute('login')
 
@@ -87,6 +87,26 @@ const register = () =>
                         title: "Kayıt başarılı"
                     }).then(() => window.location.href = getRoute('login'));
             })
-            .catch(err => console.error(err))
+            .catch((err) => {
+                console.error(err)
+                const Toast = Swal.mixin({
+                toast: true,
+                position: "top-end",
+                showConfirmButton: false,
+                timer: 3000,
+                timerProgressBar: true,
+                customClass: {
+                    popup: 'swal2-my-toast',
+                },
+                didOpen: (toast) => {
+                    toast.onmouseenter = Swal.stopTimer;
+                    toast.onmouseleave = Swal.resumeTimer;
+                }
+                });
+                Toast.fire({
+                icon: "error",
+                title: err.response.data.message
+            });
+        });
     });
 </script>

@@ -143,7 +143,6 @@ const getFavouriteMovies = () => {
 
 const deleteFavorites = (id) => {
     fetchData('favorites.delete', {id}).then((data) => {
-        console.log('başarılı silme')
         getFavouriteMovies()
         })
 }

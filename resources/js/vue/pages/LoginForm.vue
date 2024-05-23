@@ -47,9 +47,9 @@ import { useAuthStore } from '@stores/authStore'
 import Swal from 'sweetalert2'
 
 const imgUrl = new URL('@images/site_logo.png', import.meta.url).href
-const imgUrl2 = new URL('@images/login2.jpg', import.meta.url).href
+const imgUrl2 = new URL('@images/login_2.jpg', import.meta.url).href
 
-const authStore = useAuthStore()
+const store = useAuthStore()
 
 const form = reactive({ email: null, password: null })
 
@@ -60,7 +60,7 @@ const login = () => {
         try {
             await fetchData('api.login', form)
             localStorage.setItem('is_authenticated', true)
-            setTimeout(() => window.location.href = getRoute('index'), 200)
+            store.getUserService(true)
         }
         catch(err) {
                 console.error(err)
@@ -80,7 +80,7 @@ const login = () => {
                 });
                 Toast.fire({
                 icon: "error",
-                title: "Invalid Email or password"
+                title: err.response.data.message
             });
         }
     });

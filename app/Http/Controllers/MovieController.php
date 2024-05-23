@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\{Movie, Artist, Toprated, Upcoming};
+use App\Models\{Movie, Artist};
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 
@@ -14,11 +14,8 @@ class MovieController extends Controller
     public function index()
     {
         $movies = Movie::all();
-        $top_rated_movies = Toprated::all();
-        $upcoming_movies = Upcoming::all();
         $artists = Artist::all();
-        return view('pages.homepage', ['movies' => $movies, 'artists' => $artists,
-        'top_rated_movies' => $top_rated_movies,'upcoming_movies' => $upcoming_movies]);
+        return view('pages.homepage', ['movies' => $movies, 'artists' => $artists]);
     }
 
     /**
@@ -43,7 +40,6 @@ class MovieController extends Controller
     public function show($id)
     {
         $movie = Movie::findOrFail($id);
-
         return view('pages.moviedetail', ['movie' => $movie]);
     }
 

@@ -39,5 +39,4 @@ class FavoriteController extends Controller
 
         return response()->json(['message' => 'Not Found'], 404);
     }
-
 }

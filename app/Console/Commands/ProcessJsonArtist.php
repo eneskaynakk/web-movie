@@ -18,7 +18,7 @@ class ProcessJsonArtist extends Command
         $artists = array();
         $client = new Client();
 
-        for($i = 1; $i <= 1; $i++) {
+        for($i = 1; $i <= 2; $i++) {
             $response = $client->request('GET', 'https://api.themoviedb.org/3/person/popular?language=tr-TR&page=' . $i, [
                 'headers' => [
                   'Authorization' => 'Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiI0YzA4NTk1ODEwYzc5NzBhMjIwOGZjODI4M2VhNjkwZSIsInN1YiI6IjY2MjI5YjM5M2Y0ODMzMDE4Njc1N2JkMSIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.QhWNgsi-mdrB97SR61KfFanE8p3jhw3Mz6MADUhflBE',

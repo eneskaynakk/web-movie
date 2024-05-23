@@ -60,18 +60,15 @@ const myMovies = ref([])
 const getFavouriteMovies = () => {
     fetchData('favorites.index').then((data) => {
         myMovies.value = data.data
-        console.log(myMovies.value)
     })
 }
 
 const deleteFavorites = (id) => {
     fetchData('favorites.delete', {id}).then((data) => {
-        console.log('başarılı silme')
         getFavouriteMovies()
         })
 }
 
 onMounted(() => getFavouriteMovies())
-
 
 </script>
